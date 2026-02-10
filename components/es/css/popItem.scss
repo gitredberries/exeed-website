@@ -1,0 +1,31 @@
+@media screen and (max-width: 1024px) {
+  .mf-pop-content.md-mf-pop-content {
+    background-color: transparent;
+    .mf-pop-img-wrapper {
+      height: auto;
+      .mf-pop-img {
+        height: auto;
+      }
+    }
+    .mf-pop-list {
+      padding: 0;
+      .mf-pop-title {
+        font-size: 0.18rem;
+        margin-top: 0.3rem;
+      }
+      .mf-pop-subtitle {
+        font-size: 0.2rem;
+        margin-top: 0.2rem;
+        line-height: 0.24rem;
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: normal;
+      }
+      .mf-pop-desc {
+        font-size: 0.14rem;
+        margin-top: 0.12rem;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 0.2rem;
+      }
+    }
+  }
+}

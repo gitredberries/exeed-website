@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: liunaiyang
+ * @Date: 2024-04-28 10:37:37
+ * @LastEditors: liunaiyang
+ * @LastEditTime: 2024-05-08 22:27:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- files in public folder are served as root. Here the favicon is taken from the public folder. -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, minimum-scale=1.0">
+
+  <title>EXEED LX</title>
+  <style>
+    body {
+      margin: 0px;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/index.33609410.js"></script>
+  <link rel="stylesheet" href="./assets/index.771c4e70.css">
+</head>
+
+<body>
+  <canvas id="renderCanvas" tabindex="1" touch-action="none"></canvas>
+
+  
+  <script>
+    window.addEventListener('wheel', function(event){
+      if (event.ctrlKey === true || event.metaKey) {
+        event.preventDefault();
+      }
+    }, {passive: false})
+  </script>
+</body>
+
+</html>

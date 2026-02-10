@@ -1,0 +1,174 @@
+<template>
+  <div
+    ref="targetElement"
+    class="count-to inline-flex flex-col lg:items-center select-none"
+    :class="[labelPosition === 'center' ? 'items-center' : 'items-start']"
+  >
+    <div
+      v-if="flag"
+      ref="valueRef"
+      class="value-wrap flex font-miLight"
+      :class="valueClass"
+    >
+      <div class="value relative flex overflow-hidden h-full">
+        <div
+          class="duration-1000 ease-in-out inline-flex flex-col h-full text-center"
+          v-for="(val, idx) in countList"
+          :key="val"
+          :style="{ transform: `translate(0px, ${transformList[idx]}px)` }"
+          :data-num="val"
+        >
+          <span v-if="val == '0'" class="inline-block leading-[inherit]"
+            >0</span
+          >
+          <template v-else>
+            <div
+              v-for="i in Number(val) + 1"
+              :key="i"
+              :style="{
+                textAlign: 'center',
+                height: `${transformUnitHeight}px`,
+              }"
+            >
+              {{ i - 1 }}
+            </div>
+          </template>
+        </div>
+      </div>
+      <div class="unit">{{ unit }}</div>
+    </div>
+    <div :class="labelClass" class="label text-[#999]">
+      {{ label }}
+    </div>
+  </div>
+</template>
+  
+  <script lang="ts" setup>
+import { pa } from "element-plus/es/locales.mjs";
+import { ref, nextTick, onMounted } from "vue";
+interface IC5ClassName {
+  numberClass: string;
+  labelClass: string;
+  c5CountToWrap: string;
+}
+interface Props {
+  value: string;
+  label?: string;
+  unit?: string;
+  labelPosition?: "left" | "center";
+  labelClass?: string;
+  valueClass?: string;
+}
+const props = withDefaults(defineProps<Props>(), {
+  labelPosition: "left",
+});
+const countList = computed(() => props.value.split(""));
+let transformUnit = 64.0;
+const transformList = ref<number[]>([]);
+const transformUnitHeight = ref(64.0);
+const valueRef = ref<HTMLElement>();
+const flag = ref(true);
+
+// 创建 ref 来引用目标元素
+const targetElement = ref(null);
+// 创建响应式变量来记录元素是否可见
+const isVisible = ref(false);
+
+let observer: IntersectionObserver;
+const initCount = () => {
+  transformList.value = transformList.value.map((_) => 0);
+};
+
+const handleCountTo = () => {
+  transformList.value = countList.value.map((count) => {
+    let num = Number(count);
+    if (num === 0) {
+      return 0;
+    } else {
+      transformUnit =
+        transformUnit === 0 && valueRef.value
+          ? valueRef.value.offsetHeight
+          : transformUnit;
+      transformUnitHeight.value = Math.floor(transformUnit);
+      return -transformUnitHeight.value * num;
+    }
+  });
+};
+
+const handleResizeUnitSize = () => {
+  if (!valueRef.value) return;
+  var oStyle = window.getComputedStyle(valueRef.value, null);
+  transformUnit = parseFloat(oStyle.height);
+  handleCountTo();
+};
+
+onMounted(() => {
+  handleResizeUnitSize();
+  initCount();
+  // setTimeout(() => {
+  //   handleCountTo();
+  // }, 500);
+  window.addEventListener("resize", handleResizeUnitSize);
+
+  // 创建 IntersectionObserver 实例
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // isVisible.value = true; // 设置标志位为 true
+          //flag.value = true; // 设置标志位为 true
+          handleNumCountTo();
+          // observer.unobserve(entry.target); // 停止观察该元素
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  if (targetElement.value) {
+    observer.observe(targetElement.value); // 开始观察目标元素
+  }
+});
+
+const handleNumCountTo = () => {
+  initCount();
+  flag.value = false;
+
+  nextTick(() => {
+    flag.value = true;
+    setTimeout(() => {
+      handleCountTo();
+    }, 500);
+  });
+};
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResizeUnitSize);
+  // 在组件卸载前停止观察，避免内存泄漏
+  if (observer) {
+    observer.disconnect();
+  }
+});
+</script>
+<style scoped lang="scss">
+.count-to {
+  .value-wrap {
+    @apply text-[0.6rem] leading-[0.64rem] h-[0.64rem] mb-[0rem];
+
+    @media screen and (max-width: 1024px) {
+      @apply text-[0.26rem] leading-[0.26rem] h-[0.26rem] mb-[0rem];
+    }
+  }
+
+  .label {
+    @apply text-[0.24rem] leading-[0.29rem];
+
+    @media screen and (max-width: 1024px) {
+      @apply text-[0.16rem] leading-[0.18rem];
+    }
+  }
+
+  .value {
+    transition: transform 0.5s ease-out;
+  }
+}
+</style>

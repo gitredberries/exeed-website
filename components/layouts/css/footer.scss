@@ -1,0 +1,107 @@
+@media screen and (max-width: 1024px) {
+  footer.md-footer {
+    .footer-link-wrapper {
+      display: none;
+    }
+    .md-footer-link-wrapper {
+      padding-top: 0.24rem;
+      display: block;
+      li {
+        width: 100%;
+        .main-li {
+          padding: 0 0.2rem;
+          height: 0.48rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .main-li-text {
+            font-size: 0.16rem;
+            color: white;
+          }
+          .main-li-arrow {
+            width: 0.2rem;
+            transform: rotateZ(180deg);
+            transition: all 0.5s;
+          }
+        }
+        .childern-wrapper {
+          max-height: 0;
+          background: #1a1a1a;
+          overflow: hidden;
+          transition: all 0.5s;
+          padding: 0 0.2rem;
+          .childern-li {
+            display: flex;
+            align-items: center;
+            height: 0.48rem;
+            justify-content: flex-start;
+            color: white;
+          }
+        }
+      }
+      li.active {
+        .main-li {
+          .main-li-arrow {
+            transform: rotateZ(0);
+          }
+        }
+        .childern-wrapper {
+          max-height: 5rem;
+        }
+      }
+    }
+    .md-logo-wrapper {
+      display: block;
+      display: flex;
+      justify-content: center;
+      margin-top: 0.4rem;
+      .footer-logo {
+        width: 1.22rem;
+      }
+    }
+    .md-partner {
+      width: 100%;
+      margin-top: 0.24rem;
+      display: flex;
+      justify-content: center;
+      li {
+        margin-right: 0.4rem;
+        &:nth-last-of-type(1) {
+          margin-right: 0;
+        }
+        img {
+          width: 0.2rem;
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .md-privacy {
+      display: block;
+      font-size: 0.12rem;
+      line-height: 0.2rem;
+      color: #b2b2b2;
+      text-align: center;
+      margin: 0.24rem 0 0.05rem 0;
+      .interval {
+        margin: 0 0.04rem;
+        &:hover {
+          color: #b2b2b2;
+        }
+      }
+      span{
+        &:hover{
+          color: white;
+        }
+      }
+    }
+    .privacy,.notice{
+      display: none;
+    }
+    .bottom{
+      padding-bottom: 0.17rem;
+    }
+  }
+}

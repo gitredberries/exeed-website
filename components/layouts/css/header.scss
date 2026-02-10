@@ -1,0 +1,45 @@
+@media screen and (max-width: 1024px) {
+  .header-outer {
+    .header-wrapper {
+      height: 0.52rem;
+      padding: 0 0.2rem;
+      transition: all .5s;
+      .header-info {
+        justify-content: space-between;
+        .logo {
+          width: 0.97rem;
+          cursor: pointer;
+        }
+        .md-nav {
+          display: block;
+          color: #808080;
+          font-size: 0.16rem;
+          cursor: pointer;
+        }
+        .md-nav-close{
+          display: block;
+          color: #808080;
+          font-size: 0.16rem;
+          cursor: pointer;
+        }
+        .lang-wrapper {
+          position: static;
+          .lang{
+            display: none;
+          }
+          .lang-icon{
+            display: block;
+            width: 0.24rem;
+            cursor: pointer;
+          }
+        }
+      }
+      .nav-info {
+        display: none;
+      }
+    }
+    .fill-empty{
+      height: 0.52rem;
+    }
+  }
+}

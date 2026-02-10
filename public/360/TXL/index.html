@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: liunaiyang
+ * @Date: 2024-04-28 10:37:37
+ * @LastEditors: liunaiyang
+ * @LastEditTime: 2024-06-14 18:50:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- files in public folder are served as root. Here the favicon is taken from the public folder. -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, minimum-scale=1.0">
+
+  <title>EXEED TXl</title>
+  <style>
+    body {
+      margin: 0px;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black !important;
+    }
+
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+
+    }
+
+  </style>
+  <script type="module" crossorigin src="./assets/index.f40dae31.js"></script>
+  <link rel="stylesheet" href="./assets/index.e224acb9.css">
+</head>
+
+<body>
+  <canvas id="renderCanvas" style="
+  background-color: black ;
+  -webkit-tap-highlight-color: black "></canvas>
+
+  
+  <script>
+    window.addEventListener('wheel', function(event){
+      if (event.ctrlKey === true || event.metaKey) {
+        event.preventDefault();
+      }
+    }, {passive: false})
+  </script>
+</body>
+
+</html>

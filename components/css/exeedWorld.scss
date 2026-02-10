@@ -1,0 +1,66 @@
+@media screen and (max-width: 1024px) {
+  .exeed-world.md-exeed-world {
+    top: 0.52rem;
+    height: calc(100vh - 0.52rem);
+    padding: 0 0.2rem;
+    .close {
+      display: none;
+    }
+    .exeed-world-detail {
+      margin-top: 0.72rem;
+      .exeed-world-title {
+        font-size: 0.32rem;
+        line-height: 0.4rem;
+      }
+      .exeed-world-subtitle {
+        font-size: 0.14rem;
+        line-height: 0.22rem;
+        margin-top: 0.16rem;
+      }
+      .exeed-world-choice {
+        margin-top: 0.6rem;
+        .choice-desc {
+          font-size: 0.14rem;
+          line-height: 0.22rem;
+        }
+        .choice-content {
+          flex-direction: column;
+          align-items: center;
+          margin-top: 0.2rem;
+          .choice-name {
+            width: 100%;
+            font-size: 0.16rem;
+            height: 0.36rem;
+            line-height: 0.2rem;
+            .drop-down-wrapper {
+              top: 0.4rem;
+              .drop-down {
+                li {
+                  height: 0.4rem;
+                  line-height: 0.4rem;
+                  font-size: 0.14rem;
+                }
+              }
+            }
+            .drop-down-wrapper.active{
+              max-height: 5rem;
+            }
+          }
+          .chioce-btn {
+            width: 100%;
+            box-sizing: border-box;
+            height: 0.4rem;
+            margin-top: 0.48rem;
+            font-size: 0.14rem;
+            justify-content: center;
+            align-items: center;
+            .choice-btn-arrow {
+              width: 0.16rem;
+              margin-left: 0.08rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

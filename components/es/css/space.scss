@@ -1,0 +1,45 @@
+@media screen and (max-width: 1024px) {
+  .space-wrapper.md-space-wrapper {
+    background-color: #a0a9b0;
+    .space-bg{
+      display: none;
+    }
+    .md-space-bg{
+      display: block;
+      opacity: 1;
+    }
+    .detail{
+      position: relative;
+      background-color: #a0a9b0;
+      top: 0;
+      left: 0;
+      padding: 0 0.2rem 0.6rem;
+      .title{
+        font-size: 0.14rem;
+        line-height: 0.2rem;
+      }
+      .desc {
+        font-size: 0.2rem;
+        line-height: 0.28rem;
+        margin-top: 0.1rem;
+        .pc-br{
+          display: none;
+        }
+        .md-br{
+          display: block;
+        }
+      }
+      .taste{
+        font-size: 0.14rem;
+        line-height: 0.21rem;
+        margin-top: 0.08rem;
+      }
+    }
+    .swiper-wrapper{
+      display: none;
+    }
+    .space-swiper.md-space-swiper {
+      display: block;
+    }
+  }
+}

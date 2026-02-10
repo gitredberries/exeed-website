@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "SairaBlack";
+  src: url('./iconfont/Saira-Black.ttf');
+}
+
+@font-face {
+  font-family: "SairaBold";
+  src: url('./iconfont/Saira-Bold.ttf');
+}
+
+@font-face {
+  font-family: "SairaExtraBold";
+  src: url('./iconfont/Saira-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: "SairaExtraLight";
+  src: url('./iconfont/Saira-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: "SairaLight";
+  src: url('./iconfont/Saira-Light.ttf');
+}
+
+@font-face {
+  font-family: "SairaMedium";
+  src: url('./iconfont/Saira-Medium.ttf');
+}
+
+@font-face {
+  font-family: "Saira";
+  src: url('./iconfont/Saira-Regular.ttf');
+}
+
+@font-face {
+  font-family: "SairaSemiBold";
+  src: url('./iconfont/Saira-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: "SairaThin";
+  src: url('./iconfont/Saira-Thin.ttf');
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url('./iconfont/Poppins.ttf');
+}
+
+@font-face {
+  font-family: "SairaExpanded";
+  src: url('./iconfont/Saira_Expanded-Regular.ttf');
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif; 
+}
+
+.font-Saira--Black {
+  font-family: "SairaBlack", sans-serif;
+}
+
+.font-Saira--Black {
+  font-family: "SairaBold", sans-serif;
+}
+
+.font-Saira--ExtraBold {
+  font-family: "SairaExtraBold", sans-serif;
+}
+
+.font-Saira--ExtraLight {
+  font-family: "SairaExtraLight", sans-serif;
+}
+
+.font-Saira--Light {
+  font-family: "SairaLight", sans-serif;
+}
+
+.font-Saira--Medium {
+  font-family: "SairaMedium", sans-serif;
+}
+
+.font-Saira--Regular {
+  font-family: "SairaRegular", sans-serif;
+}
+
+.font-Saira--SemiBold {
+  font-family: "SairaSemiBold", sans-serif;
+}
+
+.font-Saira--Thin {
+  font-family: "SairaThin", sans-serif;
+}
+
+body {
+  font-family: "Saira", sans-serif;
+}

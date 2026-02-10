@@ -1,0 +1,175 @@
+.anim {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 0.3s ease-in-out forwards;
+}
+
+@keyframes _slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+    visibility: visible;
+  }
+}
+
+.slideUp {
+  animation: _slideUp 0.7s ease-in-out forwards;
+}
+
+@keyframes _bounce {
+  0%, 100% {
+    transform: translateY(-150%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.bounce {
+  animation: _bounce 1.2s infinite;
+}
+/* Vx遮罩动画 */
+.banner_shade {
+  width: 100%;
+  height:100%;
+  background-color: #000;
+  transition: all 3.5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+.banner_shade.active {
+  height: 0;
+}
+/* 动画从下往上 */
+.title_spin {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.title_spin::before {
+  content: ''; 
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #c78e66;
+  transition: top 0.3s ease;
+}
+.title_spin:hover::before {
+  top: 0; 
+  cursor: pointer;
+  z-index: -1; /* 确保伪元素在内容下方 */
+}
+.title_spin:hover div{
+  color: #fff;
+  cursor: pointer;
+}
+/* 按钮样式 */
+.HotspotPoint__point__3GEmahoi {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: scale(0);
+  border: 1px solid transparent;
+  transition: border 300ms; }
+  .HotspotPoint__point__3GEmahoi:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    transform: translate(-50%, -50%);
+    transition: transform 300ms, background 300ms;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid transparent; }
+    .HotspotPoint__point__3GEmahoi:before {
+      border-color: #fff; }
+      .HotspotPoint__pulsing__1MVjgpDF:before {
+        width: 22px;
+        height: 22px; }
+      
+      .HotspotPoint__pulsing__1MVjgpDF::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 26px;
+        height: 26px;
+        margin-top: -13px;
+        margin-left: -13px;
+        transform-origin: center;
+        border-radius: 50%;
+        box-sizing: border-box;
+        animation: HotspotPoint__pulse__1erxfkPR 2s infinite;
+        border: 2px solid #fff; }
+        
+        .HotspotPoint__pulsing__1MVjgpDF::after {
+          color: #fff;
+          border: 2px solid #fff; }
+      
+      @keyframes HotspotPoint__pulse__1erxfkPR {
+        0% {
+          opacity: 0;
+          border-width: 2px;
+          transform: scale(0.5, 0.5);
+          background-color: rgba(255,255,255,.8); }
+        50% {
+          opacity: 1;
+          transform: scale(0.8, 0.8);
+          border-width: 2px;
+          background-color: rgba(255,255,255,.8); }
+        100% {
+          opacity: 0;
+          border-width: 1px;
+          background-color: rgba(255,255,255,.1);
+          transform: scale(2.5, 2.5); } }
+
+/* 底部border-bottom从1%到100%动画 */
+.item::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: rgba(227, 190, 164, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: expandBorder 1.51s 0.8s forwards;
+}
+
+@keyframes expandBorder {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+          
+

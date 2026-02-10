@@ -1,0 +1,44 @@
+@media screen and (max-width: 1024px) {
+  .gallery-wrapper.md-gallery-wrapper {
+    height: auto;
+    padding: 0;
+    padding-bottom: 0.6rem;
+    .detail {
+      flex-direction: column;
+      padding: 0.8rem 0.2rem 0.4rem;
+      margin: 0;
+      .detail-left {
+        .gallery-title {
+          font-size: 0.14rem;
+          line-height: 0.2rem;
+          color: white;
+        }
+        .gallery-subtitle {
+          font-size: 0.2rem;
+          margin-top: 0.1rem;
+          line-height: 0.28rem;
+        }
+      }
+      .detail-right {
+        font-size: 0.24rem;
+        margin-top: 0.2rem;
+        line-height: 0.36rem;
+      }
+    }
+    .gallery-swiper{
+      display: none;
+      .swiper-bg{
+        height: auto;
+        width: 100%;
+      }
+      .swiper-pagination{
+        margin: 0 0.2rem;
+        width: calc(100% - 0.4rem);
+      }
+    }
+    .md-gallery-swiper{
+      margin-top: 0;
+      display: block;
+    }
+  }
+}

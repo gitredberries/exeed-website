@@ -1,0 +1,42 @@
+@media screen and (max-width: 1024px) {
+  .gallery-wrapper.md-gallery-wrapper {
+    height: auto;
+    padding-bottom: 0.5rem;
+    .detail {
+      flex-direction: column;
+      margin-left: 0.2rem;
+      margin-top: 0.8rem;
+      .detail-left {
+        .gallery-title {
+          font-size: 0.14rem;
+          line-height: 0.2rem;
+          color: white;
+        }
+        .gallery-subtitle {
+          font-size: 0.2rem;
+          margin-top: 0.1rem;
+          line-height: 0.28rem;
+        }
+      }
+      .detail-right {
+        font-size: 0.41rem;
+        margin-top: 2rem;
+        line-height: 0.7rem;
+      }
+    }
+    .gallery-swiper{
+      display: none;
+      margin-top: 0.4rem;
+      .swiper{
+        padding-bottom: 0.5rem;
+      }
+      .swiper-bg{
+        height: auto;
+        width: 100%;
+      }
+    }
+    .md-gallery-swiper{
+      display: block;
+    }
+  }
+}

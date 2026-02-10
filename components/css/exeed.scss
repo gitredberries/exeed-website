@@ -1,0 +1,25 @@
+@media screen and (max-width: 1024px) {
+  .exeed-wrapper.md-exeed-wrapper {
+    .country_jump{
+      padding: 0.46rem 0.2rem;
+      .country_t1{
+        font-size: 0.24rem;
+        line-height: 0.32rem;
+      }
+      .country_t2{
+        font-size: 0.14rem;
+        line-height: 0.2rem;
+        margin-top: 0.1rem;
+        text-align: center;
+      }
+      .country_my{
+        margin-top: 0.32rem;
+        font-size: 0.14rem;
+        line-height: 0.22rem;
+        padding: 0 0.24rem;
+        height: 0.4rem;
+        line-height: 0.4rem;
+      }
+    }
+  }
+}

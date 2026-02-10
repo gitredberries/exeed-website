@@ -1,0 +1,40 @@
+@media screen and (max-width: 1024px) {
+  .intelligence-wrapper.md-intelligence-wrapper{
+    background-color: #a0a9b0;
+    .intelligence-bg{
+      display: none;
+    }
+    .md-intelligence-bg{
+      display: block;
+      opacity: 1;
+    }
+    .intelligence-detail{
+      text-align: left;
+      padding: 0 0.2rem;
+      text-align: center;
+      top: 0.8rem;
+      .detail-title{
+        font-size: 0.14rem;
+        line-height: 0.2rem;
+        color: white;
+      }
+      .detail-subtitle{
+        font-size: 0.2rem;
+        line-height: 0.28rem;
+        margin-top: 0.1rem;
+      }
+      .detail-desc{
+        font-size: 0.14rem;
+        line-height: 0.2rem;
+        margin-top: 0.1rem;
+      }
+    }
+    .swiper-wrapper{
+      display: none;
+    }
+    .md-intelligence-swiper{
+      display: block;
+      margin-top: 0.6rem;
+    }
+  }
+}

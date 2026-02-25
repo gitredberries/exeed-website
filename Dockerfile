@@ -23,7 +23,7 @@ FROM node:20-alpine
 
 ENV TZ=Asia/Shanghai
 ENV NODE_ENV=production
-ENV NITRO_PORT=3000
+ENV HOST=0.0.0.0
 ENV NITRO_HOST=0.0.0.0
 
 WORKDIR /app
@@ -33,4 +33,5 @@ COPY --from=builder /app/.output ./.output
 
 EXPOSE 3000
 
+# Nitro respects PORT env var which Railway injects automatically
 CMD ["node", ".output/server/index.mjs"]

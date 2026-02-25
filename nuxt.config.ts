@@ -110,10 +110,6 @@ export default defineNuxtConfig({
     storesDirs: ["~/stores/**"],
   },
   nitro: {
-    output: {
-      publicDir: "./dist",
-      dir: "./dist",
-    },
     devProxy: {
       "/api": {
         target: "https://cms-client.omodaglobal.com/api",

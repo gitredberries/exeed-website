@@ -15,6 +15,10 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY . .
 
+# Use production env for the build so Nuxt bakes correct defaults
+# (Nuxt/Vite loads .env then .env.production when NODE_ENV=production)
+RUN cp .env.production .env
+
 # Build for production (SSR mode)
 RUN pnpm run build
 
@@ -25,6 +29,12 @@ ENV TZ=Asia/Shanghai
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV NITRO_HOST=0.0.0.0
+
+# Nuxt 3 runtime config overrides (NUXT_PUBLIC_<KEY> pattern)
+# These can be overridden by Railway env vars at deploy time
+ENV NUXT_PUBLIC_API_URL=https://api.exeed-bh.com/
+ENV NUXT_PUBLIC_STATIC_URL=https://exeed-bh.com
+ENV NUXT_PUBLIC_OOS_URL=https://cms-uat.omodaglobal.com/
 
 WORKDIR /app
 

@@ -28,12 +28,12 @@ const { targetRef, isVisible } = useAnimation({
 const goToExternalLink = () => {
   let url = '';
   switch (props.sign) {
-    case 'vx': url = '/360/VX'; break;
-    case 'rx': url = '/360/RX'; break;
-    case 'txl': url = '/360/TXL'; break;
-    case 'lx': url = '/360/LX'; break;
-    case 'es': url = '/360/ES'; break;
-    case 'et': url = '/360/ET'; break;
+    case 'vx': url = '/360/vx360/'; break;
+    case 'rx': url = '/360/RX/'; break;
+    case 'txl': url = '/360/TXL/'; break;
+    case 'lx': url = '/360/LX/'; break;
+    case 'es': url = '/360/es360-2.0/'; break;
+    case 'et': url = '/360/ET_Pack/htdocs/'; break;
   }
   window.open(url, "_blank");
 };

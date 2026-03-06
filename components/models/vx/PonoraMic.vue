@@ -19,7 +19,7 @@ const { targetRef, isVisible } = useAnimation({
 });
 
 const goToExternalLink = () => {
-  window.open("http://106.14.155.0:20002/pika/ex.html", "_blank");
+  window.open("/360/vx360/", "_blank");
 };
 </script>
 

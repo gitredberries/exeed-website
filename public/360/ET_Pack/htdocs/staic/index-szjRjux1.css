@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3fcf50895554a8feb155455ab2da91726312ecb0feecd6f0a1b01af4ad6395c
-size 459
+canvas{width:100%;height:100%}:root{--scale-factor: 2;--outline-width: calc(2px / var(--scale-factor));--outline-offset: calc(-2px / var(--scale-factor))}.active{outline:var(--outline-width) solid white;outline-offset:var(--outline-offset);scale:1.1}@media (min-resolution: 2dppx){:root{--scale-factor: 2}}@media (min-resolution: 3dppx){:root{--scale-factor: 3}}@media (min-resolution: 4dppx){:root{--scale-factor: 4}}body{margin:0;padding:0;overflow:hidden}

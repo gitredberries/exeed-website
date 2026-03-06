@@ -1,3 +1,131 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:069d93ac955131c54afbcfba1da194124aaa7878d10e2f7eacc3d2ed16da8a4f
-size 4608
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #panorama {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            height: 100vh;
+            position: relative;
+        }
+
+        .title {
+            position: absolute;
+            top: 20vh;
+            left: 200px;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="panorama">
+    </div>
+    <h1 class="title">
+        <div class="color-buttons">
+            <div style="color: white;">Exterior</div>
+            <button class="color-button" style="background: black; width: 30px;height: 30px;"
+                onclick="changeColor('black')"></button>
+            <button class="color-button" style="background: #506f74; width: 30px;height: 30px;"
+                onclick="changeColor('green')"></button>
+            <button class="color-button" style="background: #b23447; width: 30px;height: 30px;"
+                onclick="changeColor('red')"></button>
+            <button class="color-button" style="background: silver; width: 30px;height: 30px;"
+                onclick="changeColor('silver')"></button>
+            <button class="color-button" style="background: white; width: 30px;height: 30px;"
+                onclick="changeColor('white')"></button>
+        </div>
+        <div class="in-color-buttons">
+            <div style="color: white;">Interior</div>
+            <button class="color-button" style="background: #d9ddd0; width: 30px;height: 30px;"
+                onclick="changeInteriorColor('green')"></button>
+            <button class="color-button" style="background: grey; width: 30px;height: 30px;"
+                onclick="changeInteriorColor('grey')"></button>
+            <button class="color-button" style="background: #dd7378; width: 30px;height: 30px;"
+                onclick="changeInteriorColor('red')"></button>
+        </div>
+    </h1>
+    <!-- <div id="panorama"></div> -->
+    <script src="./mouse.js"></script>
+    <link rel="stylesheet" href="./pannellum.css" />
+    <script type="text/javascript" src="./pannellum.js"></script>
+    <script>
+        let rotateInstance;
+        let viewer;
+
+        function loadImages(color) {
+            const imageUrls = [];
+            for (let i = 1; i < 73; i++) {
+                let num = String(i).padStart(3, '0');
+                imageUrls.push('./360_out/'+color+'/CHERY_E03_cam360.0'+num+'.png');
+            }
+            return imageUrls;
+        }
+
+        function changeColor(color) {
+            console.log(color)
+            if (rotateInstance) {
+                rotateInstance.imgUrls = loadImages(color);
+                rotateInstance.imgMap.clear();
+                rotateInstance.idx = 0;
+                rotateInstance.previewImages();
+            }
+            if (viewer) {
+                viewer.destroy(); // 销毁现有 Viewer
+                viewer = null;  // 清空 viewer，确保不会影响后续操作
+                document.getElementById("panorama").innerHTML = ""; // 清空全景内容
+                            // 重新创建外观旋转视图
+            const imageUrls = loadImages(color);
+            rotateInstance = new RotateByDrag(imageUrls, '.wrap');
+            }
+
+        }
+        function getInteriorImage(color) {
+            console.log(color)
+            return './360_in/E03_FL_360_in_'+color+'.jpg';
+        }
+
+        function changeInteriorColor(color) {
+            if (viewer) {
+                viewer.destroy(); // 销毁现有 Viewer
+            }
+            console.log(color)
+            viewer = pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "autoLoad": true,
+                "showFullscreenCtrl": false,
+                "panorama": getInteriorImage(color)
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const initialColor = "black";
+            const imageUrls = loadImages(initialColor);
+            rotateInstance = new RotateByDrag(imageUrls, '.wrap');
+
+            const initialInteriorColor = "green";
+            viewer = pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "autoLoad": true,
+                "showFullscreenCtrl": false,
+                "panorama": getInteriorImage(initialInteriorColor)
+            });
+        });
+
+    </script>
+</body>
+
+</html>

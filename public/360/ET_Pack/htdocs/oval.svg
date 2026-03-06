@@ -1,3 +1,122 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee90507a33492d4fbea38352949cb8e8257eaa1c2d547d11efc91415e019383a
-size 2979
+<svg class="svgcl" version="1.1" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" height="40px" width="40px"  viewBox="0 0 38 38"    xml:space="preserve">  
+    <text x="14" y="19" font-family="Monaco" font-size="2px" style="letter-spacing:0.6" fill="#802392">LOADING
+      <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+    </text>
+    <circle cx="19" cy="19" r="17" fill="none" stroke="#8d0b0b" stroke-dashoffset="55" stroke-dasharray="119.32" stroke-width="0.6027" stroke-miterlimit="10">
+      <animate attributeType="CSS" attributeName="stroke-dashoffset" from="119.32" to="55" dur="1s" />
+      <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 19 19"
+      to="360 19 19"
+      dur="1.6s"
+      repeatCount="indefinite" />
+   </circle>
+   <circle cx="19" cy="19" r="15" fill="none" stroke="#571616" stroke-dashoffset="55" stroke-dasharray="119.32" stroke-width="0.2027" stroke-miterlimit="10">
+      <animate attributeType="CSS" attributeName="stroke-dashoffset" from="119.32" to="55" dur="1s" />
+      <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="120 19 19"
+      to="480 19 19"
+      dur="1.2s"
+      repeatCount="indefinite" />
+    </circle>
+    <style>
+ html {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #7893ca;
+  background-size: 163px;
+  font: 14px/21px Monaco, sans-serif;
+  color: #c91919;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+body a, body a:visited {
+  text-decoration: none;
+  color: #FF805F;
+}
+
+body h4 {
+  margin: 0;
+  color: #ca1f1f;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  perspective: 600px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene svg {
+  width: 240px;
+  height: 240px;
+}
+
+.dc-logo {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
+.dc-logo:hover svg {
+  transform-origin: 50% 50%;
+  animation: arrow-spin 2.5s 0s cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite;
+}
+
+.dc-logo:hover:before {
+  content: '\\2764';
+  padding: 6px;
+  font: 10px/1 Monaco, sans-serif;
+  font-size: 10px;
+  color: #00fffe;
+  text-transform: uppercase;
+  position: absolute;
+  left: -70px;
+  top: -30px;
+  white-space: nowrap;
+  z-index: 20;
+  box-shadow: 0px 0px 4px #222;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dc-logo:hover:after {
+  content: 'Digital Craft';
+  padding: 6px;
+  font: 10px/1 Monaco, sans-serif;
+  font-size: 10px;
+  color: #577fcf;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  top: -30px;
+  white-space: nowrap;
+  z-index: 20;
+  box-shadow: 0px 0px 4px #222;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: none;
+}
+
+@keyframes arrow-spin {
+  50% {
+    transform: rotateY(360deg);
+  }
+}
+        </style>
+ </svg>

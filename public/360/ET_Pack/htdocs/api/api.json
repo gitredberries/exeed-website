@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:703dbd28461963476b1c4bb887b5029316443cda6002cc07bef8cf0c03164448
-size 66
+{
+    "model":{
+        "model":"scene/model.glb"
+    }
+   
+}

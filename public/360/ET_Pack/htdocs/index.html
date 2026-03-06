@@ -1,3 +1,55 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:afa054d87df629da4247b6658242f57eb0e126cfd01f66deedbeeb88c0fdf3d5
-size 1252
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>展示</title>
+  <style>
+    html {
+      background-color: black;
+    }
+
+    .mask {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(0, 0, 0);
+      z-index: 2;
+      /* 确保遮罩最上层 */
+    }
+
+    .loading {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      width: 200px;
+      height: 200px;
+    }
+
+    /* 当页面加载完成后，隐藏 loading */
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script type="module" crossorigin src="./staic/index-BhqV52wG.js"></script>
+  <link rel="modulepreload" crossorigin href="./staic/.pnpm-hH6DzoCy.js">
+  <link rel="stylesheet" crossorigin href="./staic/index-szjRjux1.css">
+</head>
+
+<body>
+  <div class="mask"></div>
+
+  <!-- Loading SVG -->
+  <!-- <img src="oval.svg" class="loading" id="loading"> -->
+  <object type="image/svg+xml" data="oval.svg" class="loading" id="loading" ></object>
+
+  <div id="root"></div>
+</body>
+
+</html>

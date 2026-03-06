@@ -1,3 +1,470 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4715bda2a99c6558cccf9cff867dd8e7c2f4fd0c64576558102e7abc4222fdd3
-size 14662
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>内饰</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            /* background-color: #000000; */
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .item {
+            cursor: pointer;
+            position: absolute;
+            box-sizing: border-box;
+            z-index: 2;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .item1 {
+            width: 5.52vw;
+            left: 24%;
+        }
+
+        .item2 {
+            width: 5.52vw;
+            left: 53%;
+        }
+
+        .item4 {
+            width: 5.52vw;
+            left: 80%;
+
+        }
+
+        .item3 {
+            z-index: 10;
+            width: 8.8vw;
+            left: 3.7%;
+            top: 89.1%;
+
+        }
+
+        .bj {
+            width: 23vw;
+            height: auto;
+            position: absolute;
+            left: 64%;
+            top: 91.2%;
+            display: flex;
+            align-items: center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* .text1, .text2, .text4 {
+            width: 100%;
+            height: 19px;
+            position: absolute;
+            top: -155%;
+            left: 10%;
+            background-repeat: no-repeat;
+            display: none;
+        } */
+        .text {
+            width: 100%;
+            position: absolute;
+            top: -110%;
+            height: auto;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .text2 {
+            left: -19%;
+        }
+
+        .text4 {
+            left: -13%;
+        }
+
+        .text img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .text1.show,
+        .text2.show,
+        .text4.show {
+            display: block;
+        }
+
+        .active {
+            transform: scale(1.1);
+        }
+
+        .container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .item-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 12px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .item:hover img {
+            transform: scale(1.1);
+        }
+
+        .item.active img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="tour.js"></script>
+
+    <div id="pano" style="width:100%;height:100%;">
+        <noscript>
+            <table style="width:100%;height:100%;">
+                <tr style="vertical-align:middle;">
+                    <td>
+                        <div style="text-align:center;">ERROR:<br /><br />Javascript not activated<br /><br /></div>
+                    </td>
+                </tr>
+            </table>
+        </noscript>
+    </div>
+    <div class="item3 item">
+        <img src="./assets/bw_off.png" alt="开关">
+
+    </div>
+    <div class="bj">
+        <img style="width: 100%;height: auto;position:absolute;left: 12%;" src="./assets/T26界面icon整理/bj1.png" alt="背景">
+
+        <div class="item1 item">
+            <img src="./assets/内饰静谧灰.png" alt="灰色选项">
+            <div class="text text1 show">
+                <img src="./assets/T26界面icon整理/1.png" />
+            </div>
+        </div>
+        <div class="item2 item">
+            <img src="./assets/内饰黑棕.png" alt="灰色选项">
+
+            <div class="text text2 " style="display: none;">
+                <img src="./assets/T26界面icon整理/2.png" style="width: 150%;" />
+            </div>
+        </div>
+        <div class="item4 item">
+            <img src="./assets/内饰黑色.png" alt="灰色选项">
+
+            <div class="text text4 " style="display: none;">
+                <img src="./assets/T26界面icon整理/4.png" style="width: 120%;" />
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var krpano = null;
+        var isBack = false;
+        var items = null;
+
+        // 颜色配置
+        const colorConfigs = [
+            {
+                id: 1,
+                name: '静谧灰',
+                normalImage: './assets/内饰静谧灰.png',
+                activeImage: './assets/内饰静谧灰-选中.png'
+            },
+            {
+                id: 2,
+                name: '黑棕',
+                normalImage: './assets/内饰黑棕.png',
+                activeImage: './assets/内饰黑棕-选中.png'
+            },
+            {
+                id: 3,
+                name: '黑色',
+                normalImage: './assets/内饰黑色.png',
+                activeImage: './assets/内饰黑色-选中.png'
+            }
+        ];
+
+        // 获取当前场景编号
+        function getCurrentSceneNumber() {
+            if (!krpano) return 1;
+            const currentScene = krpano.get('xml.scene');
+            if (!currentScene) return 1;
+            return parseInt(currentScene.split('_')[1]);
+        }
+
+        // 从场景编号获取状态信息
+        function getStateFromScene(sceneNumber) {
+            // 1-4: 灰色, 5-8: 棕色, 9-12: 黑色
+            let colorIndex;
+            if (sceneNumber <= 4) colorIndex = 0;
+            else if (sceneNumber <= 8) colorIndex = 1;
+            else colorIndex = 2;
+
+            // 奇数前排，偶数后排
+            const isBack = sceneNumber % 2 === 0;
+
+            // 每组的后两个场景是傍晚
+            const isEvening = (sceneNumber >= 3 && sceneNumber <= 4) ||
+                (sceneNumber >= 7 && sceneNumber <= 8) ||
+                (sceneNumber >= 11 && sceneNumber <= 12);
+
+            return { colorIndex, isBack, isEvening };
+        }
+
+        // 根据目标颜色获取对应场景编号
+        function getSceneForColor(targetColorIndex) {
+            const currentScene = getCurrentSceneNumber();
+            const currentState = getStateFromScene(currentScene);
+
+            // 计算基础场景号（每种颜色的起始编号）
+            const baseScene = targetColorIndex * 4 + 1;
+
+            // 计算偏移：后排+1，傍晚+2
+            let offset = 0;
+            if (currentState.isBack) offset += 1;
+            if (currentState.isEvening) offset += 2;
+
+            return baseScene + offset;
+        }
+
+        // 切换时间状态
+        function getSceneForTimeSwitch() {
+
+            const currentScene = getCurrentSceneNumber();
+            const currentState = getStateFromScene(currentScene);
+
+            // 计算基础场景号（每种颜色的第一个场景）
+            const baseScene = Math.floor((currentScene - 1) / 4) * 4 + 1;
+
+            // 如果当前是日间，切换到傍晚（+2）
+            // 如果当前是傍晚，切换到日间（-2）
+            let targetScene;
+            if (currentState.isEvening) {
+                // 从傍晚切换到日间
+                targetScene = baseScene + (currentState.isBack ? 1 : 0);
+            } else {
+                // 从日间切换到傍晚
+                targetScene = baseScene + (currentState.isBack ? 3 : 2);
+            }
+
+            return targetScene;
+        }
+
+        // 切换颜色
+        function switchColor(event, newColorIndex) {
+            const targetScene = getSceneForColor(newColorIndex);
+            switchScene('scene_' + targetScene, isBack);
+
+            // 获取所有文本元素
+            const textElements = document.querySelectorAll('.text1, .text2, .text4');
+
+            // 隐藏所有文本
+            textElements.forEach(text => {
+                text.style.display = 'none';
+            });
+
+            // 显示对应的文本
+            // 注意：newColorIndex 是0,1,2，而我们的文本类名是text1,text2,text4
+            const textClass = newColorIndex === 2 ? 'text4' : `text${newColorIndex + 1}`;
+            const activeText = document.querySelector(`.${textClass}`);
+            if (activeText) {
+                activeText.style.display = 'block';
+            }
+        }
+
+        // 切换时间
+        function switchTime() {
+            if (!items) {
+                items = document.querySelectorAll('.item');
+            }
+            if (!krpano) return;
+
+            const currentScene = getCurrentSceneNumber();
+            const currentState = getStateFromScene(currentScene);
+            const targetScene = getSceneForTimeSwitch();
+
+            // 立即更新按钮图片状态，使用当前状态来判断
+            items[0].src = currentState.isEvening ?
+                "./assets/bw_off.png" :
+                "./assets/bw_on.png";
+
+
+            // 切换场景
+            switchScene('scene_' + targetScene, currentState.isBack);
+        }
+
+        // 更新UI状态
+        function updateUI() {
+            if (!items) {
+                items = document.querySelectorAll('.item');
+            }
+
+            const currentScene = getCurrentSceneNumber();
+            const state = getStateFromScene(currentScene);
+
+            // 更新颜色按钮状态
+            const colorButtons = [items[1], items[2], items[3]];
+            colorButtons.forEach((button, index) => {
+                if (index === state.colorIndex) {
+                    //button.style.backgroundImage = `url('${colorConfigs[index].activeImage}')`;
+                    // 显示对应的文字
+                    // document.getElementById('text' + (index + 2))?.style.display = 'block';
+                    // document
+
+                    for (const element of button.children) {
+                        // element.classList.add('active');
+                        if (element.tagName === 'IMG') {
+                            element.src = colorConfigs[index].activeImage
+
+                        }
+                    }
+
+                } else {
+                    button.classList.remove('active');
+                    // button.style.backgroundImage = `url('${colorConfigs[index].normalImage}')`;
+                    // 隐藏其他文字
+                    // document.getElementById('text' + (index + 2))?.style.display = 'none';
+                    for (const element of button.children) {
+                        // element.classList.add('active');
+                        if (element.tagName === 'IMG') {
+                            element.src = colorConfigs[index].normalImage
+
+                        }
+                    }
+                }
+            });
+
+            // 更新日夜切换按钮状态
+
+            items[0].children[0].src = state.isEvening ?
+                "./assets/bw_on.png" :
+                "./assets/bw_off.png";
+            // 更新傍晚文字显示
+        }
+
+        function initKrpano() {
+            window.devicePixelRatio = 1
+            // 初始化全景图
+            embedpano({
+                xml: "tour.xml",
+                target: "pano",
+                html5: "auto",
+                mobilescale: 1.0,
+                passQueryParameters: true,
+                onready: onKrpanoReady
+            });
+        }
+
+        function onKrpanoReady(krpanoObj) {
+            krpano = krpanoObj;
+            initializeEvents();
+            updateUI();
+        }
+
+        // 切换场景并保持视角
+        function switchScene(targetScene, isBackRow) {
+            if (!krpano) return;
+
+            const currentSceneNum = getCurrentSceneNumber();
+            const currentState = getStateFromScene(currentSceneNum);
+            const targetSceneNum = parseInt(targetScene.split('_')[1]);
+            const targetState = getStateFromScene(targetSceneNum);
+
+            // 只在相同位置（前排/后排）切换颜色或日夜时保持视角
+            const keepView = currentState.isBack === targetState.isBack;
+
+            if (keepView) {
+                // 获取当前视角状态
+                var currentView = {
+                    hlookat: krpano.get("view.hlookat"),
+                    vlookat: krpano.get("view.vlookat"),
+                    fov: krpano.get("view.fov")
+                };
+            }
+
+            // 切换场景
+            krpano.call("loadscene(" + targetScene + ", null, MERGE, BLEND(1))");
+
+            if (keepView) {
+                // 恢复视角状态
+                setTimeout(function () {
+                    krpano.set("view.hlookat", currentView.hlookat);
+                    krpano.set("view.vlookat", currentView.vlookat);
+                    krpano.set("view.fov", currentView.fov);
+                    updateUI();
+                }, 100);
+            } else {
+                setTimeout(updateUI, 100);
+            }
+
+            // 更新后排标志
+            isBack = isBackRow;
+            window.parent.postMessage({ type: 'sceneChanged', isBack: isBack }, '*');
+        }
+
+        // 初始化事件监听
+        function initializeEvents() {
+            // 获取dom元素
+            items = document.querySelectorAll('.item');
+            // 颜色切换按钮点击事件
+            items[1].addEventListener('click', (event) => switchColor(event, 0)); // 灰色
+            items[2].addEventListener('click', (event) => switchColor(event, 1)); // 棕色
+            items[3].addEventListener('click', (event) => switchColor(event, 2)); // 黑色
+
+            // 日夜切换按钮点击事件
+
+            items[0].addEventListener('click', () => {
+                switchTime();
+            });
+        }
+
+        window.addEventListener('load', initKrpano);
+    </script>
+</body>
+
+</html>

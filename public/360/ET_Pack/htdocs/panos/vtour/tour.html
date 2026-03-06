@@ -1,3 +1,220 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f2c927353441c7ee08bde7fa761a99e311edc3ec10683186d51e81fc4013a47
-size 7052
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>内饰</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            /* background-color: #000000; */
+            background-image: './assets/T26界面icon整理/assets/bj.png';
+        }
+
+        .item {
+            padding: 36px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .item:hover {
+            /* transform: scale(1.1); */
+        }
+
+
+        .item1 {
+            background-image: url('./assets/果酱奶昔-未点亮.png');
+        }
+
+        .item2 {
+            background-image: url('./assets/半糖主义-未点亮.png');
+        }
+
+        .item3 {
+            background-image: url('./assets/阅读灯-未点亮.png');
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="tour.js"></script>
+
+    <div id="pano" style="width:100%;height:100%;">
+        <noscript>
+            <table style="width:100%;height:100%;">
+                <tr style="vertical-align:middle;">
+                    <td>
+                        <div style="text-align:center;">ERROR:<br /><br />Javascript not activated<br /><br /></div>
+                    </td>
+                </tr>
+            </table>
+        </noscript>
+    </div>
+    <div class="item1 item"></div>
+    <div class="item2 item"></div>
+    <div class="item3 item"></div>
+    <script>
+        //获取krpano id
+        const krpano = document.getElementById('krpanoSWFObject');
+        krpano.style.opacity = 0.5
+
+        //获取dom元素
+        let items = document.querySelectorAll('.item');
+
+        let map = new WeakMap();
+
+        let activeNumber = 4;
+
+        window.addEventListener('load', () => {
+            embedpano({
+                swf: `./tour.swf`,
+                xml: `./tour.xml`,
+                target: 'pano',
+                html5: 'auto',
+                mobilescale: 1.0,
+                passQueryParameters: true,
+                onready: krpano_onready_callback
+            })
+        })
+        let krpano;
+        let krpano_onready_callback = (krpano_interface) => {
+            krpano = krpano_interface
+        }
+        let jsToLoadscene = (scenename) => {
+            setTimeout(() => {
+                krpano.call(`loadscene(scene_${scenename},null,KEEPVIEW,BLEND(0.7))`)
+            }, 100)
+        }
+
+        let item1 = {
+            id: 1,
+            dom: items[0],
+            normalImage: './assets/果酱奶昔-未点亮.png',
+            activeImage: './assets/果酱奶昔-点亮.png',
+            flag: false,
+            event: function () {
+                if (this.flag) {
+                    this.dom.style.backgroundImage = `url(${this.normalImage})`;
+                } else {
+                    this.dom.style.backgroundImage = `url(${this.activeImage})`
+                    if (krpano) {
+                        activeNumber = 4
+                        if (!item3.flag) {
+                            jsToLoadscene(1)
+                        } else {
+
+                            jsToLoadscene(4)
+                        }
+                    }
+
+                }
+            },
+        }
+        item1.event()
+        let item2 = {
+            id: 2,
+            dom: items[1],
+            normalImage: './assets/半糖主义-未点亮.png',
+            activeImage: './assets/半糖主义-点亮.png',
+            flag: false,
+            event: function () {
+                if (this.flag)
+                    this.dom.style.backgroundImage = `url(${this.normalImage})`
+
+                else {
+                    console.log(item3.flag, "flag");
+                    this.dom.style.backgroundImage = `url(${this.activeImage})`
+                    if (krpano) {
+                        activeNumber = 2
+                        if (!item3.flag) {
+                            jsToLoadscene(3)
+                        } else {
+
+                            jsToLoadscene(2)
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        let item3 = {
+            id: 3,
+            dom: items[2],
+            normalImage: './assets/阅读灯-未点亮.png',
+            activeImage: './assets/阅读灯-点亮.png',
+            flag: true,
+            event: function () {
+                this.flag = !this.flag
+                if (this.flag) {
+                    console.log(1111111);
+                    this.dom.style.backgroundImage = `url(${this.normalImage})`
+                    console.log(activeNumber);
+                    if (activeNumber == 4) {
+                        jsToLoadscene(4)
+                    } else if (activeNumber == 2) {
+                        jsToLoadscene(2)
+                    }
+                }
+
+                else {
+                    this.dom.style.backgroundImage = `url(${this.activeImage})`
+                    console.log(22222222222);
+                    console.log(activeNumber, "activerNumber");
+                    if (activeNumber == 4) {
+                        jsToLoadscene(1)
+                    } else if (activeNumber == 2) {
+                        jsToLoadscene(3)
+                    }
+
+                }
+            }
+        }
+        map.set(item1.dom, item1);
+        map.set(item2.dom, item2);
+        map.set(item3.dom, item3);
+
+        items.forEach(item => {
+            if (map.has(item)) {
+
+                item.addEventListener('click', (event) => {
+                    if (map.get(item) !== item3) {
+                        for (let i = 0; i < items.length; i++) {
+                            const inner_item = map.get(items[i]);
+                            if (i == items.length - 1) {
+                                break
+                            }
+                            inner_item.dom.style = inner_item.normalImage
+                            console.log(inner_item.flag);
+                        }
+                    }
+                    map.get(item).event()
+
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95aae884a1ca679c216f8b67e724e3359c89b7f7586bd8e88e9abbf9efc2f9ad
-size 680
+<krpano>
+
+	<!--
+		fps (frames per second) xml plugin
+		- this plugin shows the current average rendering frame-rate
+	-->
+
+	<action name="fps_install" autorun="preinit" scope="local">
+		delayedcall(0.5,
+			addlayer(fps_display);
+			set(layer[fps_display],
+				type=text,
+				keep=true,
+				align='lefttop',
+				css=calc('font-size:'+(device.mobile AND stagescale LT 1.0 ? 24 : 12)+'px; color:#FFFFFF;'),
+				txtshadow='0 0 1 0x000000 1.0',
+				bg=false,
+				parent=STAGE,
+				vr=true,
+				enabled=false
+			);
+			setinterval(fps_plugin, 0.5,
+				calc(layer[fps_display].html, 'FPS: ' + ((display.currentfps+0.5) BOR 0));
+			);
+		);
+	</action>
+
+</krpano>

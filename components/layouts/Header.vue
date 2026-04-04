@@ -18,29 +18,54 @@
           @click="onLogoClick"
           @mouseenter="isScrollDown = false"
         />
-        <div class="lang-wrapper" @click="onWorldClick">
-          <span class="lang">EXEED World</span>
-          <BaseImg class="lang-icon" src="header/earth.svg" />
-        </div>
       </div>
+      <a href="https://www.adamasmotors.com" target="_blank" rel="noopener noreferrer" class="adamas-logo-link">
+        <BaseImg class="adamas-logo" :src="'common/adamas_logo.svg'" />
+      </a>
       <div
         :class="[
           'nav-info',
-          isScrollDown && !isHeadPopActive ? 'nav-hide' : '',
+          isScrollDown && !isModelsDropdownOpen ? 'nav-hide' : '',
         ]"
         v-show="showNav"
       >
         <ul @mouseleave="onNavLeave">
           <li
-            :class="[!item.isActive ? 'inactive' : '']"
+            :class="[
+              !item.isActive ? 'inactive' : '',
+              item.children ? 'has-dropdown' : '',
+            ]"
             v-for="(item, index) in navList"
             :key="item.text"
             @click="onNavListClick(index)"
             @mouseenter="onNavListEnter(index)"
           >
             {{ item.text }}
+            <span v-if="item.children" class="dropdown-arrow">▾</span>
           </li>
         </ul>
+        <!-- EXEED Models Dropdown -->
+        <div
+          :class="['models-dropdown', isModelsDropdownOpen ? 'open' : '']"
+          @mouseleave="closeModelsDropdown"
+          @mouseenter="keepModelsDropdownOpen"
+        >
+          <div class="models-dropdown-inner">
+            <div
+              class="model-item"
+              v-for="item in modelsDropdownList"
+              :key="item.text"
+              @click="onModelClick(item)"
+            >
+              <img
+                class="model-silhouette"
+                :src="`${config.public.staticURL}/images/EXEED_Models_Dropdown_Icons/${item.icon}`"
+                :alt="item.text"
+              />
+              <span class="model-name">EXEED {{ item.text }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <ExeedWorld :showModal="showModal" @closeModal="closeModal" />
@@ -60,19 +85,14 @@ import { navData } from "./data.js";
 const { scrollY } = useScroll();
 const router = useRouter();
 const route = useRoute();
-preloadRouteComponents("/exploration");
-preloadRouteComponents("/sustainability");
-preloadRouteComponents("/techReev");
-preloadRouteComponents("/safety");
-preloadRouteComponents("/awd");
-preloadRouteComponents("/exeedEvents");
-preloadRouteComponents("/exlantixEvents");
 preloadRouteComponents("/vx");
 preloadRouteComponents("/rx");
-preloadRouteComponents("/txl");
 preloadRouteComponents("/lx");
-preloadRouteComponents("/es");
-preloadRouteComponents("/et");
+preloadRouteComponents("/news");
+preloadRouteComponents("/dealership");
+preloadRouteComponents("/offers");
+preloadRouteComponents("/find-us");
+preloadRouteComponents("/enquire-now");
 // 当前滚动条位置
 let curScrollY = 0;
 
@@ -88,6 +108,16 @@ const closeModal = () => showModal.value && headStore.setWorldModal(false);
 
 // 导航弹出框是否显示
 const isHeadPopActive = ref(false);
+
+// Models dropdown state
+const isModelsDropdownOpen = ref(false);
+const modelsDropdownList = [
+  { text: "VX", icon: "VX.png", link: "vx" },
+  { text: "LX", icon: "LX.png", link: "lx" },
+  { text: "RX", icon: "RX.png", link: "rx" },
+];
+
+const config = useRuntimeConfig();
 
 // 0: 都不显示; 1: 显示menu; 2: 显示close;
 const mdMenuStatus = ref(1);
@@ -106,32 +136,42 @@ const navList = reactive([
     id: 1,
     text: "EXEED Models",
     isActive: true,
-    children: [...navData[3].children.slice(0, 4)],
+    children: [
+      { ...navData[3].children[0] }, // VX
+      { ...navData[3].children[3] }, // LX
+      { ...navData[3].children[1] }, // RX
+    ],
   },
   {
     id: 2,
     isActive: true,
-    text: "EXLANTIX Models",
-    children: [...navData[3].children.slice(4, 6)],
+    text: "Dealership",
+    link: navData[5].link,
   },
   {
     id: 3,
     isActive: true,
-    text: "Exploration",
-    link: navData[0].link,
+    text: "News",
+    link: "news",
   },
   {
     id: 4,
     isActive: true,
-    text: "Sustainability",
-    link: navData[1].link,
+    text: "Offers",
+    link: navData[6].link,
   },
   {
     id: 5,
     isActive: true,
-    text: "Tech",
-    children: [...navData[2].children],
-  }
+    text: "Find Us",
+    link: navData[7].link,
+  },
+  {
+    id: 6,
+    isActive: true,
+    text: "Enquire Now",
+    link: navData[8].link,
+  },
 ]);
 
 const handleRouteNav = (val) => {
@@ -182,6 +222,7 @@ const changeActiveId = (id) => {
 
 // 鼠标移出导航
 const onNavLeave = () => {
+  isModelsDropdownOpen.value = false;
   if (!isHeadPopActive.value) {
     handleRouteNav(route.path);
   }
@@ -190,7 +231,22 @@ const onNavLeave = () => {
 const closeHeadPop = () => {
   mdMenuStatus.value = 1;
   isHeadPopActive.value = false;
+  isModelsDropdownOpen.value = false;
   onNavLeave();
+};
+
+const closeModelsDropdown = () => {
+  isModelsDropdownOpen.value = false;
+  handleRouteNav(route.path);
+};
+
+const keepModelsDropdownOpen = () => {
+  isModelsDropdownOpen.value = true;
+};
+
+const onModelClick = (item) => {
+  isModelsDropdownOpen.value = false;
+  router.push(`/${item.link}`);
 };
 
 const onWorldClick = () => {
@@ -201,29 +257,31 @@ const onWorldClick = () => {
 
 // 导航条点击事件
 const onNavListClick = (index) => {
-  if (navList[index].id == 3 || navList[index].id === 4) {
+  const item = navList[index];
+  if (item.children) {
+    // Toggle models dropdown
+    isModelsDropdownOpen.value = !isModelsDropdownOpen.value;
     isHeadPopActive.value = false;
-    router.push(`/${navList[index].link}`);
-  } else {
-    activeId.value = navList[index].id;
-    isHeadPopActive.value = true;
-    handleNavHeadPop(index);
+  } else if (item.link) {
+    // Direct link items
+    isHeadPopActive.value = false;
+    isModelsDropdownOpen.value = false;
+    router.push(`/${item.link}`);
   }
 };
 
 const handleNavHeadPop = (index) => {
   navList.forEach((v) => (v.isActive = false));
   navList[index].isActive = true;
-  if (navList[index].id == 3 || navList[index].id === 4) {
-    isHeadPopActive.value = false;
-    return;
-  }
-  if (isHeadPopActive.value) {
-    activeId.value = navList[index].id;
-  }
 };
 
 const onNavListEnter = (index) => {
+  const item = navList[index];
+  if (item.children) {
+    isModelsDropdownOpen.value = true;
+  } else {
+    isModelsDropdownOpen.value = false;
+  }
   if (!isHeadPopActive.value) {
     navList.forEach((v) => (v.isActive = false));
     navList[index].isActive = true;
@@ -308,23 +366,26 @@ watch(scrollY, (newVal) => {
       cursor: pointer;
     }
 
-    .lang-wrapper {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 2rem;
-      font-size: 0.13rem;
-      color: #b2b2b2;
-      display: flex;
-      align-items: center;
-      animation: langMoveIn 1s ease-out;
-    }
+  }
 
-    .lang {
-      cursor: pointer;
-    }
-    .lang-icon {
-      display: none;
+  .adamas-logo-link {
+    position: absolute;
+    top: 0;
+    right: 1.2rem;
+    height: 1.26rem;
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+  }
+
+  .adamas-logo {
+    width: 1.0rem;
+    height: 0.56rem;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 1;
     }
   }
 
@@ -365,6 +426,70 @@ watch(scrollY, (newVal) => {
           opacity: 0.7;
         }
         opacity: 0.4;
+      }
+
+      .has-dropdown {
+        .dropdown-arrow {
+          margin-left: 0.04rem;
+          font-size: 0.12rem;
+          transition: transform 0.3s;
+        }
+      }
+    }
+
+    .models-dropdown {
+      position: absolute;
+      top: 0.54rem;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s;
+      z-index: 1000;
+      pointer-events: none;
+
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .models-dropdown-inner {
+        display: flex;
+        gap: 0.4rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(0.1rem);
+        border-radius: 0.08rem;
+        padding: 0.3rem 0.5rem;
+        box-shadow: 0 0.04rem 0.2rem rgba(0, 0, 0, 0.15);
+      }
+
+      .model-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 0.1rem 0.2rem;
+        border-radius: 0.06rem;
+        transition: background 0.2s;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
+
+        .model-silhouette {
+          width: 1.8rem;
+          height: auto;
+          object-fit: contain;
+        }
+
+        .model-name {
+          margin-top: 0.1rem;
+          font-size: 0.14rem;
+          color: #333;
+          font-weight: 500;
+          white-space: nowrap;
+        }
       }
     }
   }

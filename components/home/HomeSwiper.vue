@@ -1,7 +1,7 @@
 <template>
   <div class="home-swiper-wrapper">
     <div class="title-wrapper">
-      <div class="title">PR Releases</div>
+      <div class="title">NEWS</div>
       <div class="pagination-wrapper">
         <div
           :class="['page-icon', currentPage === 1 && 'page-disabled']"
@@ -79,7 +79,6 @@
     </div>
     <div class="btn-wrapper">
       <div @click="jumpToNews(1)">EXEED News</div>
-      <div @click="jumpToNews(2)">EXLANTIX News</div>
     </div>
     <MouseHover ref="mouseDragRef" />
   </div>

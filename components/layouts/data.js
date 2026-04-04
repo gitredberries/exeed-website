@@ -82,4 +82,24 @@ export const navData = [
       },
     ],
   },
+  {
+    id: 6,
+    text: "Dealership",
+    link: "dealership",
+  },
+  {
+    id: 7,
+    text: "Offers",
+    link: "offers",
+  },
+  {
+    id: 8,
+    text: "Find Us",
+    link: "find-us",
+  },
+  {
+    id: 9,
+    text: "Enquire Now",
+    link: "enquire-now",
+  },
 ];

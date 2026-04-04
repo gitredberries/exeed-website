@@ -74,22 +74,22 @@ const socialList = reactive([
   {
     id: 1,
     src: "common/camera.svg",
-    link: "https://www.instagram.com/exeedglobal/",
+    link: "https://www.instagram.com/exeed.bahrain/",
   },
   {
     id: 2,
     src: "common/facebook.svg",
-    link: "https://www.facebook.com/ExeedGlobal/",
+    link: "https://www.facebook.com/exeed.bahrain/",
   },
   {
     id: 3,
     src: "common/tiktok.svg",
-    link: "https://www.tiktok.com/@exeed_global?lang=en",
+    link: "https://www.tiktok.com/@exeed.bahrain",
   },
   {
     id: 4,
-    src: "common/youtube.svg",
-    link: "https://www.youtube.com/@EXLANTIX_gobal",
+    src: "common/linkedin.svg",
+    link: "https://ae.linkedin.com/company/adamasmotors",
   },
 ]);
 
@@ -104,19 +104,6 @@ const routerPush = (url) => {
 const linkList = reactive([
   [
     {
-      text: "Art & Culture",
-    },
-    {
-      text: "Exploration",
-      link: navData[0].link,
-    },
-    {
-      text: "Sustainability",
-      link: navData[1].link,
-    },
-  ],
-  [
-    {
       text: "EXEED Models",
     },
     {
@@ -128,38 +115,36 @@ const linkList = reactive([
       link: navData[3].children[1].link,
     },
     {
-      text: "EXEED TXL",
-      link: navData[3].children[2].link,
-    },
-    {
       text: "EXEED LX",
       link: navData[3].children[3].link,
     },
   ],
   [
     {
-      text: "EXLANTIX Models",
+      text: "News",
     },
     {
-      text: "EXLANTIX ES",
-      link: navData[3].children[4].link,
-    },
-    {
-      text: "EXLANTIX ET",
-      link: navData[3].children[5].link,
+      text: "EXEED News",
+      link: "news",
     },
   ],
   [
     {
-      text: "Tech",
+      text: "Offers",
+      link: navData[6].link,
     },
-    ...navData[2].children,
   ],
   [
     {
-      text: "Event",
+      text: "Find Us",
+      link: navData[7].link,
     },
-    ...navData[4].children,
+  ],
+  [
+    {
+      text: "Enquire Now",
+      link: navData[8].link,
+    },
   ],
 ]);
 

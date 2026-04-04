@@ -176,7 +176,7 @@
     <section class="tech-reev-four" ref="sectionFour">
       <div class="tech-reev-four-bg">
         <video
-          src="https://cms-uat.obs.ap-southeast-1.myhuaweicloud.com/platform/public/video/20250407-175716.mp4"
+          :src="`${config.public.oosURL}platform/public/video/20250407-175716.mp4`"
           muted
           preload="metadata"
           loop
@@ -489,7 +489,7 @@ const sevenList = reactive([
     src: "explorationImage/seven5.png",
     text: "Squeezing for 200kN, +100%",
     type: "video",
-    url: "https://cms-uat.obs.ap-southeast-1.myhuaweicloud.com/platform/public/video/20250407-175629.mp4",
+    url: `${config.public.oosURL}platform/public/video/20250407-175629.mp4`,
   },
   {
     id: 6,

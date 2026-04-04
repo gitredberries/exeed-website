@@ -23,7 +23,6 @@
         :class="[
           'nav-inner',
           item.isEnter ? 'active' : '',
-          (item.id === 5 || item.id === 6) && 'nav-inner-new',
         ]"
         v-for="item in navList"
         :key="item.id"
@@ -146,12 +145,12 @@ const modelList = [
     moveSwitch: 1,
     isSwitchActive: 1,
     bgSrc: "common/nav05.png",
-    title: "LAND BUSINESS JET",
+    title: "EXEED Flagship Land Business Jet",
     quota: [
       {
         isNum: true,
         numArr: [2, 6, 1],
-        unit: "H.P.",
+        unit: "HP",
         name: "Power",
       },
       {
@@ -161,10 +160,10 @@ const modelList = [
         name: "Powertrain",
       },
       {
-        isNum: true,
-        numArr: [8],
+        isNum: false,
+        text: "8AT",
         unit: "",
-        name: "AT",
+        name: "Transmission",
       },
     ],
   },
@@ -172,83 +171,27 @@ const modelList = [
     id: 2,
     isEnter: false,
     moveSwitch: 1,
-    withSwitch: true,
     isSwitchActive: 1,
-    switchLeftText: "PHEV",
-    switchRightText: "ICE",
     bgSrc: "common/nav06.png",
-    title: "KEEP EXPLORING,POWER NEVER LIMITING",
-    quota: [
-      {
-        isNum: false,
-        text: "Hybrid specific",
-        unit: "",
-        name: "Engine",
-      },
-      {
-        isNum: false,
-        text: "3-gear DHT",
-        unit: "",
-        name: "Transmission",
-      },
-      {
-        isNum: false,
-        text: "I-AWD",
-        unit: "",
-        name: "System",
-      },
-    ],
-    child: {
-      title: "CDC NEVER WOBBLING",
-      quota: [
-        {
-          isNum: false,
-          text: "CDC",
-          unit: "",
-          name: "Engine",
-        },
-        {
-          isNum: true,
-          numArr: [2, ".", 0],
-          unit: "TGDL",
-          name: "Transmission",
-        },
-        {
-          isNum: true,
-          numArr: [8],
-          unit: "AT",
-          name: "Transmission",
-        },
-      ],
-    },
-  },
-  {
-    id: 3,
-    isEnter: false,
-    moveSwitch: 1,
-    isSwitchActive: 1,
-    carSrc: "common/h-car-on-txl.png",
-    signSrc: "common/h-car-on-t-txl.png",
-    bgSrc: "common/nav04.png",
-    title: "SAFETY AND BUSINESS SUV",
+    title: "Commanding Presence. Refined Design.",
     quota: [
       {
         isNum: true,
-        numArr: [2, 3],
+        numArr: [2, 4, 5],
+        unit: "HP",
+        name: "Power",
+      },
+      {
+        isNum: false,
+        text: "2.0 TGDI",
         unit: "",
-        name: "ADAS",
+        name: "Powertrain",
       },
       {
-        isNum: true,
-        numArr: [2, ".", 0],
-        unit: "T",
+        isNum: false,
+        text: "8AT",
+        unit: "",
         name: "Transmission",
-      },
-      {
-        isNum: true,
-        numArr: [8],
-        unit: "AT",
-        name: "0-100<br>kph Acceleration<br>Time",
       },
     ],
   },
@@ -264,21 +207,21 @@ const modelList = [
     quota: [
       {
         isNum: true,
-        numArr: [4],
-        unit: "WD",
-        name: "BorgWarner Drive System",
+        numArr: [1, 9, 7],
+        unit: "HP",
+        name: "Power",
       },
       {
-        isNum: true,
-        numArr: ["L", 2],
-        unit: "+",
-        name: "Intellectual Power",
-      },
-      {
-        isNum: true,
-        numArr: [1, ".", 6, " TGDI", " + ", 7, " DCT"],
+        isNum: false,
+        text: "1.6 TGDI",
         unit: "",
         name: "Engine",
+      },
+      {
+        isNum: false,
+        text: "7DCT",
+        unit: "",
+        name: "Transmission",
       },
     ],
   },

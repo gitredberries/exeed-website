@@ -11,15 +11,6 @@
     <div class="nav-outer" v-if="showExeedModel">
       <ModelNav :isActive="isPopActive && showExeedModelAnimate" />
     </div>
-    <div class="nav-outer" v-if="showExlantixModel">
-      <ExlantixModel :isActive="isPopActive && showExlantixModelAnimate" />
-    </div>
-    <div class="nav-outer tech-nav-out" v-if="showTech">
-      <TechNav :isActive="isPopActive && showTechAnimate" />
-    </div>
-    <div class="nav-outer" v-if="showEvents">
-      <EventsNav :isActive="isPopActive && showEventsAnimate" />
-    </div>
   </div>
   <div
     v-show="isShow"
@@ -116,10 +107,12 @@ const onlevel2Click = (item) => {
 };
 
 const onNavClick = (item) => {
-  if (item.id === 3 || item.id === 4) {
+  if (item.link) {
+    // Direct link items
     emits("closeHeadPop");
     router.push(`/${item.link}`);
   } else {
+    // Items with children (EXEED Models)
     level1Active.value = true;
     emits("changeActiveId", item.id);
   }

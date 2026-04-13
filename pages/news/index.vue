@@ -1,6 +1,6 @@
 <template>
   <div class="news">
-    <NewsBanner title="EXEED News" :banner="`url(${config.public.staticURL}/images/news/newsBanner.png)`"/>
+    <NewsBanner title="EXEED News" :banner="`${config.public.staticURL}/images/news/newsBanner.png`"/>
     <NewsContent />
   </div>
 </template>

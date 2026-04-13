@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="banner-wrapper md-banner-wrapper"
-    :style="{
-      backgroundImage: props.banner,
-    }"
-  >
+  <div class="banner-wrapper md-banner-wrapper">
+    <img class="banner-img" :src="props.banner" alt="" />
     <div class="cover">
       <span>{{ props.title }}</span>
     </div>
@@ -26,12 +22,13 @@ const props = defineProps({
 @import url("./css/newsBanner.scss");
 .banner-wrapper {
   width: 100%;
-  height: 3.8rem;
   margin-top: 0.72rem;
-  background-position: center 40%;
-  background-repeat: no-repeat;
-  background-size: 100%;
   position: relative;
+  .banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .cover {
     position: absolute;
     left: 0;

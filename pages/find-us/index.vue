@@ -1,12 +1,6 @@
 <template>
   <div class="find-us-page">
-    <!-- Hero Banner -->
-    <section class="find-us-hero">
-      <div class="hero-overlay">
-        <h1 class="hero-title">FIND US</h1>
-        <p class="hero-subtitle">Exeed Bahrain</p>
-      </div>
-    </section>
+    <NewsBanner title="FIND US" :banner="`${config.public.staticURL}/images/Web-banners/Find_Us.jpg`"/>
 
     <!-- Showroom Section -->
     <section class="location-section">
@@ -65,6 +59,7 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
 </script>
 
 <style lang="scss" scoped>
@@ -72,52 +67,6 @@
   background: #0d0d0d;
   color: white;
   min-height: 100vh;
-
-  // Hero Banner
-  .find-us-hero {
-    width: 100%;
-    height: 3.8rem;
-    margin-top: 0.72rem;
-    background-image: url("/images/Web-banners/Find_Us.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-
-    .hero-overlay {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.2) 40%,
-        rgba(0, 0, 0, 0) 60%
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0.5rem 0.6rem;
-
-      .hero-title {
-        font-family: Saira, SairaExpanded, sans-serif;
-        font-size: 0.52rem;
-        font-weight: 300;
-        line-height: 0.64rem;
-        letter-spacing: 0.02rem;
-        color: #ffffff;
-      }
-      .hero-subtitle {
-        font-family: Saira, sans-serif;
-        font-size: 0.16rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.85);
-        margin-top: 0.06rem;
-      }
-    }
-  }
 
   // Location Sections
   .location-section {
@@ -189,22 +138,6 @@
 
 @media screen and (max-width: 1024px) {
   .find-us-page {
-    .find-us-hero {
-      height: 1.6rem;
-      margin-top: 0.52rem;
-      .hero-overlay {
-        padding: 0.24rem 0.3rem;
-        .hero-title {
-          font-size: 0.28rem;
-          line-height: 0.36rem;
-        }
-        .hero-subtitle {
-          font-size: 0.12rem;
-          margin-top: 0.04rem;
-        }
-      }
-    }
-
     .location-section {
       flex-direction: column;
       min-height: auto;

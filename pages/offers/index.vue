@@ -1,11 +1,6 @@
 <template>
   <div class="offers-page">
-    <section class="offers-hero">
-      <div class="hero-overlay">
-        <h1 class="hero-title">OFFERS</h1>
-        <p class="hero-subtitle">Explore the latest seasonal promotions</p>
-      </div>
-    </section>
+    <NewsBanner title="OFFERS" :banner="`${config.public.staticURL}/images/Web-banners/Offers.jpg`"/>
     <section class="offers-content">
       <div class="content-inner">
         <div class="offers-grid">
@@ -66,52 +61,6 @@ getOffers();
   color: white;
   min-height: 100vh;
 
-  .offers-hero {
-    width: 100%;
-    height: 3.8rem;
-    margin-top: 0.72rem;
-    background-image: url("/images/Web-banners/Offers.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-
-    .hero-overlay {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.2) 40%,
-        rgba(0, 0, 0, 0) 60%
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0.5rem 0.6rem;
-
-      .hero-title {
-        font-family: Saira, SairaExpanded, sans-serif;
-        font-size: 0.52rem;
-        font-weight: 300;
-        line-height: 0.64rem;
-        letter-spacing: 0.02rem;
-        color: #ffffff;
-      }
-      .hero-subtitle {
-        font-family: Saira, sans-serif;
-        font-size: 0.16rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.85);
-        margin-top: 0.08rem;
-        font-style: italic;
-      }
-    }
-  }
-
   .offers-content {
     padding: 1rem 1.2rem;
     .content-inner {
@@ -171,21 +120,6 @@ getOffers();
 
 @media screen and (max-width: 1024px) {
   .offers-page {
-    .offers-hero {
-      height: 1.6rem;
-      margin-top: 0.52rem;
-      .hero-overlay {
-        padding: 0.24rem 0.3rem;
-        .hero-title {
-          font-size: 0.28rem;
-          line-height: 0.36rem;
-        }
-        .hero-subtitle {
-          font-size: 0.12rem;
-          margin-top: 0.04rem;
-        }
-      }
-    }
     .offers-content {
       padding: 0.4rem 0.3rem;
       .content-inner .offers-grid {

@@ -31,11 +31,10 @@
       <div class="title_01">Design Aesthetics</div>
       <div class="title_02">THE EXTERIOR OF THE NEW RX</div>
       <div class="title_03">
-        The appearance of the gold medal shape, sports fashion, high-end
-        artistic attainments, enjoy the advanced aesthetic
+        Breathtaking exterior design with sports, high-end features and dramatic silhouette.
       </div>
       <div class="zdt_btn mf-ws" @click="open_video">
-        <div>INTERIOR VIDEO</div>
+        <div>SHOWCASE VIDEO</div>
         <div class="zdt_b_icon">
           <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
           <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />

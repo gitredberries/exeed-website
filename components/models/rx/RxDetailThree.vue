@@ -3,7 +3,7 @@
   <div class="detail" ref="targetRef" :class="{ active: isVisible }">
     <div class="title_01">Overview and Parameters</div>
     <div class="title_02">
-      RX evolves into your SUV for exploring diverse life scenarios.
+      The RX evolves into an SUV of choice for every aspect of life.
     </div>
     <div class="title_content">
       <div class="item" :class="{ animate: isVisible }">

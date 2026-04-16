@@ -50,7 +50,6 @@ const _models = reactive([
   background: #0d0d0d;
   color: white;
   min-height: 100vh;
-  padding-top: 1.26rem;
   box-sizing: border-box;
 
   .dealership-welcome {

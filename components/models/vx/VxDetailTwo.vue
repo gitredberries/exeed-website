@@ -3,8 +3,8 @@
   <div class="detail" ref="targetRef" :class="{ active: isVisible }">
     <div class="title_01">THE NEW VX</div>
     <div class="title_02">
-      The NEW VX redefines the premium flagships of EXEED, showcasing elegance
-      and power in every detail
+      The all-new VX is the new EXEED flagship, which combines elegance and
+      power in every detail.
     </div>
     <div class="title_content">
       <div class="item" :class="{ animate: isVisible }">
@@ -12,7 +12,7 @@
         <div class="item_tent">
           <div class="item_content">
             <BaseImg src="models/vx/05.png" alt="" />
-            <div class="digit"><CountTo value="261" /> H.P.</div>
+            <div class="digit"><CountTo value="261" /> HP</div>
           </div>
           <div class="item_border"></div>
         </div>

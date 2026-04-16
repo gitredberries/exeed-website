@@ -28,8 +28,8 @@
     <div class="detail_title" v-show="showTitle" :class="{ active: isVisible }">
       <div class="title_01">Design Aesthetics</div>
       <div class="title_02">
-        Appearance of a comprehensive upgrade,enjoy the advanced <br />
-        aesthetic
+        A complete exterior upgrade reflecting the <br />
+        sophisticated design language of EXEED
       </div>
     </div>
     <!-- 动态生成弹出内容 -->

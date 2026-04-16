@@ -112,9 +112,9 @@ const isHeadPopActive = ref(false);
 // Models dropdown state
 const isModelsDropdownOpen = ref(false);
 const modelsDropdownList = [
-  { text: "VX", icon: "VX.png", link: "vx" },
   { text: "LX", icon: "LX.png", link: "lx" },
   { text: "RX", icon: "RX.png", link: "rx" },
+  { text: "VX", icon: "VX.png", link: "vx" },
 ];
 
 const config = useRuntimeConfig();
@@ -372,7 +372,7 @@ watch(scrollY, (newVal) => {
     position: absolute;
     top: 0;
     right: 1.2rem;
-    height: 1.26rem;
+    height: 0.72rem;
     display: flex;
     align-items: center;
     z-index: 1001;

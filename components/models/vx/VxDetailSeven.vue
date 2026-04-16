@@ -6,7 +6,8 @@
     <div class="detail_title" :class="{ active: isVisible }">
       <div class="title_01">Comfortable Cabin</div>
       <div class="title_02">
-        ENTER THE CABIN <br />ENJOY THE PRIVILEGED PLEASURE
+        Step into the cabin and enjoy refined comfort, crafted to feel truly
+        exceptional.
       </div>
       <div class="title_03">
         Enter the cabin for sensual pleasures and appreciation of reverence

@@ -202,8 +202,8 @@ const findLink = (linkName) => {
   return link;
 };
 
-// Allowed banner linkNames for EXEED Bahrain
-const allowedBannerLinks = ["vx", "rx", "lx"];
+// Allowed banner linkNames for EXEED Bahrain (order defines slide order after welcome)
+const allowedBannerLinks = ["lx", "rx", "vx"];
 
 const welcomeBanner = {
   id: "welcome",
@@ -230,7 +230,11 @@ const getData = () => {
         link: findLink(v.jsondef?.linkName),
         descList: v.jsondef?.descList || [],
       }))
-      .sort((a, b) => a.sort - b.sort);
+      .sort((a, b) => {
+        const aIndex = allowedBannerLinks.indexOf(a.jsondef?.linkName?.toLowerCase());
+        const bIndex = allowedBannerLinks.indexOf(b.jsondef?.linkName?.toLowerCase());
+        return aIndex - bIndex;
+      });
     s1List.value = [welcomeBanner, ...slides];
   });
 };
@@ -245,11 +249,11 @@ const s2List = reactive([
     link: "/dealership",
   },
   {
-    src: "home/vx.png",
-    mdSrc: "home/vx-md.png",
-    title: "EXEED VX",
-    subtitle: "EXEED Flagship Land Business Jet",
-    link: "/vx",
+    src: "home/lx.png",
+    mdSrc: "home/lx-md.png",
+    title: "EXEED LX",
+    subtitle: "EXPLORE YOUR MODERN SELF",
+    link: "/lx",
   },
   {
     src: "home/rx.png",
@@ -259,11 +263,11 @@ const s2List = reactive([
     link: "/rx",
   },
   {
-    src: "home/lx.png",
-    mdSrc: "home/lx-md.png",
-    title: "EXEED LX",
-    subtitle: "EXPLORE YOUR MODERN SELF",
-    link: "/lx",
+    src: "home/vx.png",
+    mdSrc: "home/vx-md.png",
+    title: "EXEED VX",
+    subtitle: "EXEED Flagship Land Business Jet",
+    link: "/vx",
   },
 ]);
 
@@ -636,6 +640,9 @@ $commonSpace: 0.03rem;
             line-height: 0.48rem;
             font-weight: 500;
             color: #ffffff;
+            transition: all 0.5s;
+            opacity: 0;
+            transform: translateX(1rem);
           }
           .welcome-card-subtitle {
             font-family: Saira;
@@ -643,6 +650,9 @@ $commonSpace: 0.03rem;
             line-height: 0.24rem;
             margin-top: 0.08rem;
             color: rgba(255, 255, 255, 0.8);
+            transition: all 0.5s 0.2s;
+            opacity: 0;
+            transform: translateX(1rem);
           }
           .welcome-card-bottom {
             font-family: Saira;
@@ -650,6 +660,9 @@ $commonSpace: 0.03rem;
             line-height: 0.28rem;
             color: rgba(255, 255, 255, 0.85);
             max-width: 80%;
+            transition: all 0.5s 0.4s;
+            opacity: 0;
+            transform: translateX(1rem);
           }
         }
       }
@@ -668,6 +681,20 @@ $commonSpace: 0.03rem;
             transform: translateX(0);
           }
           .explore-more-wrapper {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        &.welcome-card {
+          .welcome-card-title {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .welcome-card-subtitle {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .welcome-card-bottom {
             opacity: 1;
             transform: translateX(0);
           }

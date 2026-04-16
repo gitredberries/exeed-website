@@ -8,14 +8,14 @@
         <div class="title_01">Design Aesthetics</div>
         <div class="title_02">THE INTERIOR OF THE NEW RX</div>
         <div class="title_03">
-          Enjoy the spacious interior space,redefining the premium cabin.
+          Enjoy a luxurious and spacious interior, which redefines the segment.
         </div>
         <div
           class="unit_iv_all zdt_btn mf-ws"
           data-index="0"
           @click="open_video"
         >
-          <div>INTERIOR VIDEO</div>
+          <div>SHOWCASE VIDEO</div>
           <div class="zdt_b_icon">
             <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
             <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />

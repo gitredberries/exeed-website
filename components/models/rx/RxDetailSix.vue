@@ -9,18 +9,11 @@
       <div class="detail_title">
         <div class="title_01">Effortless Handling</div>
         <div class="title_02">
-          WITH EFFORTLESS HANDLING,<br />DRIVE AS YOU LIKE
+          With engaging driving experience and effortless handling, <br />the new RX feels effortless to drive.
         </div>
         <div class="title_03">
           <div
-            :class="{ active: selectedTab === 'PHEV' }"
-            @click="selectedTab = 'PHEV'"
-          >
-            PHEV
-          </div>
-          <div
-            :class="{ active: selectedTab === 'ICE' }"
-            @click="selectedTab = 'ICE'"
+            class="active"
           >
             ICE
           </div>
@@ -40,8 +33,7 @@
       </div>
     </div>
     <div>
-      <RxDetailSeven v-if="selectedTab === 'PHEV'" />
-      <RxDetailEight v-if="selectedTab === 'ICE'" />
+      <RxDetailEight />
     </div>
     <Dialog
       v-model="isShowDialog"
@@ -63,7 +55,6 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useAnimation } from "~/utils/hooks/useAnimation.js";
-import RxDetailSeven from "@/components/models/rx/RxDetailSeven.vue";
 import RxDetailEight from "@/components/models/rx/RxDetailEight.vue";
 import Video from "@/components/models/Video.vue";
 
@@ -78,8 +69,6 @@ const showDialog = () => {
 const { targetRef, isVisible } = useAnimation({
   threshold: 0.3,
 });
-// 默认选中 PHEV
-const selectedTab = ref("PHEV");
 // 监听 isVisible 的变化，触发动画
 watch(isVisible, (newVal) => {
   if (newVal) {

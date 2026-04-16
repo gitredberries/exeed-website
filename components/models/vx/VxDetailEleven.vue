@@ -7,13 +7,12 @@
     <div class="detail_title">
       <div class="title_01">Safety Protection</div>
       <div class="title_02">
-        FIVE-STAR SAFETY AND HIGH-STRENGTH<br />
-        BODY FOR WORRY-FREE TRAVEL
+        Five-star safety and high-strength body, built for your peace of mind
+        and stress-free travel.
       </div>
       <div class="title_03">
-        FIVE-STAR SAFETY AND <br />
-        HIGH-STRENGTH<br />
-        BODY FOR WORRY-FREE TRAVEL
+        Five-star safety and high-strength body, built for your peace of mind
+        and stress-free travel.
       </div>
     </div>
   </div>

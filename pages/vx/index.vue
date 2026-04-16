@@ -15,7 +15,6 @@
     <VxDetailTwelve />
     <VxDetailThirteen />
     <VxDetailFourteen />
-    <Exeed btnHoverBack="#c78e66"/>
   </div>
 </template>
   

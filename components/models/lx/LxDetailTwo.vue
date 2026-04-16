@@ -3,7 +3,7 @@
   <div class="detail" ref="targetRef" :class="{ active: isVisible }">
     <div class="title_01">THE NEW LX</div>
     <div class="title_02">
-      LX new appearance, all outstanding brand fashionable tonal
+      The new LX features bold styling with the brand’s unmistakable urban character.
     </div>
     <div class="title_content">
       <div class="item" :class="{ animate: isVisible }">

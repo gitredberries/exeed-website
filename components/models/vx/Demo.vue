@@ -45,7 +45,7 @@
           design gives more business flagship <br />tone (正文)
         </div>
         <div class="zdt_btn mf-ws" @click="open_video">
-          <div>APPEARANCE VIDEO(交互)</div>
+          <div>SHOWCASE VIDEO</div>
           <div class="zdt_b_icon">
             <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
             <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />

@@ -57,22 +57,6 @@
                 <option value="general">General Enquiry</option>
               </select>
             </div>
-            <div class="form-group">
-              <select id="selectModel" v-model="form.selectModel">
-                <option value="" disabled>Select Models</option>
-                <option value="vx">EXEED VX</option>
-                <option value="rx">EXEED RX</option>
-                <option value="lx">EXEED LX</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group full-width">
-            <textarea
-              id="query"
-              v-model="form.query"
-              placeholder="Your Query"
-              rows="3"
-            ></textarea>
           </div>
 
           <div class="marketing-section">
@@ -122,8 +106,6 @@ const form = reactive({
   email: "",
   phone: "",
   enquiryType: "",
-  selectModel: "",
-  query: "",
   marketingPhone: false,
   marketingEmail: false,
   marketingSms: false,
@@ -156,15 +138,9 @@ const onSubmit = async () => {
         name: `${form.firstName} ${form.lastName}`,
         email: form.email,
         phone: form.phone,
-        vehicleType: form.selectModel
-          ? { vx: "EXEED VX", rx: "EXEED RX", lx: "EXEED LX" }[form.selectModel] || form.selectModel
+        message: (form.marketingPhone || form.marketingEmail || form.marketingSms)
+          ? `Marketing preferences: ${[form.marketingPhone && "Phone", form.marketingEmail && "Email", form.marketingSms && "SMS/MMS"].filter(Boolean).join(", ")}`
           : undefined,
-        message: [
-          form.query,
-          (form.marketingPhone || form.marketingEmail || form.marketingSms)
-            ? `Marketing preferences: ${[form.marketingPhone && "Phone", form.marketingEmail && "Email", form.marketingSms && "SMS/MMS"].filter(Boolean).join(", ")}`
-            : ""
-        ].filter(Boolean).join("\n"),
       }),
     });
 
@@ -177,8 +153,6 @@ const onSubmit = async () => {
       form.email = "";
       form.phone = "";
       form.enquiryType = "";
-      form.selectModel = "";
-      form.query = "";
       form.marketingPhone = false;
       form.marketingEmail = false;
       form.marketingSms = false;

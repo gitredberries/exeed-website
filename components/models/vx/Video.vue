@@ -17,7 +17,7 @@
       class="absolute bottom-2 right-1 flex flex-col justify-between items-center w-full h-full min-h-svh text-white"
     >
       <div class="video_back" @click="videoPlayFullScreen">
-        <div>APPEARANCE VIDEO</div>
+        <div>SHOWCASE VIDEO</div>
         <div class="zdt_b_icon">
           <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
           <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />

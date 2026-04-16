@@ -77,9 +77,6 @@
         </el-icon>
       </div>
     </div>
-    <div class="btn-wrapper">
-      <div @click="jumpToNews(1)">EXEED News</div>
-    </div>
     <MouseHover ref="mouseDragRef" />
   </div>
 </template>

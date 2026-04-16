@@ -8,7 +8,7 @@
     <div :class="['detail_title', isTitleActive && 'active']" ref="titleRef">
       <div class="title_01">Safety Protection</div>
       <div class="title_02">
-        FIVE-STAR SAFETY AND HIGH-STRENGTH<br>BODY FOR WORRY-FREE TRAVEL
+        Five-star safety and high-strength body, <br>built for your peace of mind and stress-free travel.
       </div>
     </div>
   </div>

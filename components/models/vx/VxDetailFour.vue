@@ -7,13 +7,11 @@
       <div class="title_01">Design Aesthetics</div>
       <div class="title_02">THE INTERIOR OF THE NEW VX</div>
       <div class="title_03">
-        The interior design features a comprehensive premium upgrade, and the
-      </div>
-      <div class="title_04">
-        overall design provides a horizontal visual experience.
+        A full premium upgrade creates a refined, wide “horizontal” visual
+        design interior.
       </div>
       <div class="unit_iv_all zdt_btn mf-ws" data-index="0" @click="open_video">
-        <div>APPEARANCE VIDEO</div>
+        <div>SHOWCASE VIDEO</div>
         <div class="zdt_b_icon">
           <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
           <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />
@@ -297,9 +295,9 @@ const videoUrl = `${config.public.oosURL}platform/public/video/index-video/vx_de
       }
     }
     .zdt_btn {
-      font-size: 0.24rem;
+      font-size: 0.34rem;
       font-weight: 250;
-      line-height: 0.32rem;
+      line-height: 0.44rem;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -332,15 +330,15 @@ const videoUrl = `${config.public.oosURL}platform/public/video/index-video/vx_de
 .zdt_b_icon {
   display: flex;
   justify-content: center;
-  width: 0.4rem;
+  width: 0.5rem;
   position: relative;
   overflow: hidden;
-  height: 0.2rem;
+  height: 0.28rem;
 }
 .zdt_btn {
   display: flex;
   align-items: center;
-  font-size: 0.2rem;
+  font-size: 0.3rem;
   position: relative;
   margin-top: 0.2rem;
   cursor: pointer;

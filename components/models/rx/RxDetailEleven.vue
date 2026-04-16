@@ -13,8 +13,8 @@
       <div class="detail_title">
         <div class="title_01">Safety Protection</div>
         <div class="title_02">
-          HIGH STANDARD, <br />
-          HIGH PERFORMANCE SECURITY
+          Highest standards. <br />
+          Class-leading safety for your peace of mind.
         </div>
       </div>
     </div>

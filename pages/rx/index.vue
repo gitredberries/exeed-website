@@ -10,7 +10,6 @@
     <RxDetailTwelve />
     <RxDetailThirteen />
     <RxDetailFourteen />
-    <Exeed btnHoverBack="#c78e66"/>
   </div>
 </template>
     

@@ -107,24 +107,21 @@ const linkList = reactive([
       text: "EXEED Models",
     },
     {
-      text: "EXEED VX",
-      link: navData[3].children[0].link,
+      text: "EXEED LX",
+      link: navData[3].children[3].link,
     },
     {
       text: "EXEED RX",
       link: navData[3].children[1].link,
     },
     {
-      text: "EXEED LX",
-      link: navData[3].children[3].link,
+      text: "EXEED VX",
+      link: navData[3].children[0].link,
     },
   ],
   [
     {
       text: "News",
-    },
-    {
-      text: "EXEED News",
       link: "news",
     },
   ],

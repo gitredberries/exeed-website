@@ -10,7 +10,6 @@
     <LxDetailEight />
     <LxDetailNine />
     <LXDetailTen />
-    <Exeed btnHoverBack="#c78e66"/>
   </div>
 </template>
   

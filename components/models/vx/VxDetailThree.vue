@@ -29,11 +29,11 @@
       <div class="title_01">Design Aesthetics</div>
       <div class="title_02">THE EXTERIOR OF THE NEW VX</div>
       <div class="title_03">
-        Comprehensively upgrading exterior styling luxury, the overall design
-        gives more business flagship tone
+        A comprehensive upgrade in exterior styling brings a more distinctive,
+        business-flagship presence.
       </div>
       <div class="zdt_btn mf-ws" @click="open_video">
-        <div>APPEARANCE VIDEO</div>
+        <div>SHOWCASE VIDEO</div>
         <div class="zdt_b_icon">
           <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
           <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />
@@ -388,13 +388,13 @@ const videoUrl = `${config.public.oosURL}platform/public/video/index-video/vx_de
 .zdt_btn {
   display: flex;
   align-items: center;
-  font-size: 0.24rem;
-  line-height: 0.32rem;
+  font-size: 0.34rem;
+  line-height: 0.44rem;
   position: relative;
   cursor: pointer;
   font-weight: 300;
   color: #939393;
-  width: 3.2rem;
+  width: 4.2rem;
   transform: translateY(1rem);
   opacity: 0;
   &.animate {
@@ -418,10 +418,10 @@ const videoUrl = `${config.public.oosURL}platform/public/video/index-video/vx_de
 .zdt_b_icon {
   display: flex;
   justify-content: center;
-  width: 0.4rem;
+  width: 0.5rem;
   position: relative;
   overflow: hidden;
-  height: 0.2rem;
+  height: 0.28rem;
   align-items: center;
 }
 .zbi_1 {

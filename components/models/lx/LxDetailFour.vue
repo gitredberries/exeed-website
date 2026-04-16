@@ -6,12 +6,12 @@
     <div class="detail_title" v-show="!Dialog" :class="{ active: isVisible }">
       <div class="title_01">Comfort Cabin</div>
       <div class="title_02">
-        ENJOY EXCLUSIVE FULL UPGRADE,<br />
-        COCKPIT,ABANDON CHEAP FEELIMG,<br />SENIOR SPACE
+        Ergonomic and smart interior upholstered with <br />
+        premium materials creates a feeling of space and refinement.
       </div>
       <div class="title_05">
-        ENJOY EXCLUSIVE FULL UPGRADE<br />
-        COCKPIT,ABANDON CHEAP FEELIMG, SENIOR SPACE
+        Ergonomic and smart interior upholstered with <br />
+        premium materials creates a feeling of space and refinement.
       </div>
       <div
         class="ust_min ust_4 ust_click more_neishi"

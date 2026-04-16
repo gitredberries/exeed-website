@@ -13,7 +13,15 @@
         <a class="location-link" href="mailto:info@adamasmotors.com.bh">info@adamasmotors.com.bh</a>
 
         <h3 class="hours-title">Operating Hours</h3>
-        <p class="hours-text">Monday – Saturday: 10:00 AM to 10:00 PM</p>
+        <div class="hours-grid">
+          <span class="day">Sunday</span><span class="time">10AM–10PM</span>
+          <span class="day">Monday</span><span class="time">10AM–10PM</span>
+          <span class="day">Tuesday</span><span class="time">10AM–10PM</span>
+          <span class="day">Wednesday</span><span class="time">10AM–10PM</span>
+          <span class="day">Thursday</span><span class="time">10AM–10PM</span>
+          <span class="day">Friday</span><span class="time">10AM–10PM</span>
+          <span class="day">Saturday</span><span class="time">10AM–10PM</span>
+        </div>
       </div>
       <div class="location-map">
         <iframe
@@ -28,6 +36,9 @@
       </div>
     </section>
 
+    <!-- Divider -->
+    <div class="section-divider"></div>
+
     <!-- Service Centre Section -->
     <section class="location-section">
       <div class="location-info">
@@ -35,13 +46,19 @@
         <p class="location-address">
           Block 646, 1807 Building, Al Rd No 4635, Nuwaidrat
         </p>
-        <a class="location-link" href="tel:+97317877007">+973 17877007</a>
+        <a class="location-link" href="tel:+97317877007">+973 1787 7007</a>
         <a class="location-link" href="mailto:service@adamasmotors.com.bh">service@adamasmotors.com.bh</a>
 
         <h3 class="hours-title">Operating Hours</h3>
-        <p class="hours-text">Friday: Closed</p>
-        <p class="hours-text">Saturday: 10:00 AM to 4:00 PM</p>
-        <p class="hours-text">Sunday – Thursday: 9:00 AM to 6:00 PM</p>
+        <div class="hours-grid">
+          <span class="day">Sunday</span><span class="time">9AM–6PM</span>
+          <span class="day">Monday</span><span class="time">9AM–6PM</span>
+          <span class="day">Tuesday</span><span class="time">9AM–6PM</span>
+          <span class="day">Wednesday</span><span class="time">9AM–6PM</span>
+          <span class="day">Thursday</span><span class="time">9AM–6PM</span>
+          <span class="day">Friday</span><span class="time">Closed</span>
+          <span class="day">Saturday</span><span class="time">10AM–4PM</span>
+        </div>
       </div>
       <div class="location-map">
         <iframe
@@ -67,6 +84,13 @@ const config = useRuntimeConfig();
   background: #0d0d0d;
   color: white;
   min-height: 100vh;
+
+  .section-divider {
+    height: 0.4rem;
+    background: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
 
   // Location Sections
   .location-section {
@@ -114,13 +138,26 @@ const config = useRuntimeConfig();
         font-weight: 500;
         color: #ffffff;
         margin-top: 0.32rem;
-        margin-bottom: 0.12rem;
+        margin-bottom: 0.14rem;
       }
 
-      .hours-text {
-        font-size: 0.14rem;
-        line-height: 0.24rem;
-        color: rgba(255, 255, 255, 0.8);
+      .hours-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 0.3rem;
+        row-gap: 0.04rem;
+
+        .day {
+          font-size: 0.14rem;
+          line-height: 0.26rem;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .time {
+          font-size: 0.14rem;
+          line-height: 0.26rem;
+          color: rgba(255, 255, 255, 0.85);
+        }
       }
     }
 
@@ -138,6 +175,10 @@ const config = useRuntimeConfig();
 
 @media screen and (max-width: 1024px) {
   .find-us-page {
+    .section-divider {
+      margin: 0 0.3rem;
+    }
+
     .location-section {
       flex-direction: column;
       min-height: auto;

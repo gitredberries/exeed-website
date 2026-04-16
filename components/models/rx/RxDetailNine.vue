@@ -11,12 +11,12 @@
     <div class="detail_title" :class="{ active: isVisible }">
       <div class="title_01">Intelligent Driving</div>
       <div class="title_02">
-        MORE CUTTING-EDGE IMTIMATE SCIEMTIFIC <br />
-        AND TECHNOLOGICAL SERVICES
+        More cutting-edge technologies with smart features <br />
+        and driver assistance when you need it.
       </div>
       <div class="title_03">
-        MORE CUTTING-EDGE IMTIMATE<br />
-        SCIEMTIFIC AND TECHNOLOGICAL <br />SERVICES
+        More cutting-edge technologies with smart features <br />
+        and driver assistance when you need it.
       </div>
     </div>
   </div>

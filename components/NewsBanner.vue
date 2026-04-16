@@ -22,7 +22,6 @@ const props = defineProps({
 @import url("./css/newsBanner.scss");
 .banner-wrapper {
   width: 100%;
-  margin-top: 0.72rem;
   position: relative;
   .banner-img {
     width: 100%;

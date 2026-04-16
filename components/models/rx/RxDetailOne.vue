@@ -4,25 +4,13 @@
     <div class="detail" ref="targetRef">
       <div class="banner_shade" :class="{ active: isVisible }"></div>
       <BaseImg
-        v-show="selectedTab === 'PHEV' && isPC"
-        class="img_01"
-        src="models/rx/01.jpg"
-        alt=""
-      />
-      <BaseImg
-        v-show="selectedTab === 'PHEV' && !isPC"
-        class="img_01"
-        src="models/h5/38.jpg"
-        alt=""
-      />
-      <BaseImg
-        v-show="selectedTab === 'ICE' && isPC"
+        v-show="isPC"
         class="img_01"
         src="models/rx/09.jpg"
         alt=""
       />
       <BaseImg
-        v-show="selectedTab === 'ICE' && !isPC"
+        v-show="!isPC"
         class="img_01"
         src="models/h5/39.jpg"
         alt=""
@@ -30,23 +18,13 @@
       <div class="detail_title">
         <div class="title_nav">
           <div
-            :class="{ active: selectedTab === 'PHEV' }"
-            @click="selectedTab = 'PHEV'"
-          >
-            PHEV
-          </div>
-          <div
-            :class="{ active: selectedTab === 'ICE' }"
-            @click="selectedTab = 'ICE'"
+            class="active"
           >
             ICE
           </div>
         </div>
         <div class="title">
-          <div v-show="selectedTab === 'PHEV'">
-            RX PHEV-Keep exploring,power never limiting
-          </div>
-          <div v-show="selectedTab === 'ICE'">
+          <div>
             RX-Keep Exploring, CDC Never Wobbling
           </div>
         </div>
@@ -59,14 +37,12 @@
       </div>
     </div>
     <div>
-      <RxDetailTwo v-if="selectedTab === 'PHEV'" />
-      <RxDetailThree v-if="selectedTab === 'ICE'" />
+      <RxDetailThree />
     </div>
   </div>
 </template>
 
 <script setup>
-import RxDetailTwo from "@/components/models/rx/RxDetailTwo.vue";
 import RxDetailThree from "@/components/models/rx/RxDetailThree.vue";
 import { useAnimation } from "~/utils/hooks/useAnimation.js";
 
@@ -75,8 +51,6 @@ const { targetRef, isVisible } = useAnimation({
   threshold: 0.3,
 });
 
-// 默认选中 PHEV.判断pc/h5
-const selectedTab = ref("PHEV");
 const isPC = ref(false);
 onMounted(() => {
   isPC.value = window.innerWidth > 1023;

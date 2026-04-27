@@ -138,9 +138,9 @@ const onSubmit = async () => {
         name: `${form.firstName} ${form.lastName}`,
         email: form.email,
         phone: form.phone,
-        message: (form.marketingPhone || form.marketingEmail || form.marketingSms)
-          ? `Marketing preferences: ${[form.marketingPhone && "Phone", form.marketingEmail && "Email", form.marketingSms && "SMS/MMS"].filter(Boolean).join(", ")}`
-          : undefined,
+        marketingPhone: form.marketingPhone,
+        marketingEmail: form.marketingEmail,
+        marketingSms: form.marketingSms,
       }),
     });
 

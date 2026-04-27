@@ -336,16 +336,10 @@ const onLeadSubmit = async () => {
         email: leadForm.email,
         phone: leadForm.phone,
         vehicleType: leadForm.model || undefined,
-        message: JSON.stringify({
-          enquiryType: leadForm.enquiryType,
-          model: leadForm.model,
-          query: leadForm.query,
-          marketingPreferences: {
-            phone: leadForm.marketingPhone,
-            email: leadForm.marketingEmail,
-            sms: leadForm.marketingSms,
-          },
-        }),
+        message: leadForm.query || undefined,
+        marketingPhone: leadForm.marketingPhone,
+        marketingEmail: leadForm.marketingEmail,
+        marketingSms: leadForm.marketingSms,
       }),
     });
 

@@ -21,4 +21,12 @@
 .content {
   padding-top: 1.26rem;
 }
+
+/* On mobile the nav row is hidden and the header bar is 0.52rem tall,
+   so reduce the offset to eliminate the white gap. */
+@media screen and (max-width: 1024px) {
+  .content {
+    padding-top: 0.52rem;
+  }
+}
 </style>

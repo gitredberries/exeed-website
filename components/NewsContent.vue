@@ -43,6 +43,10 @@ const props = defineProps({
     type: String,
     default: "exeed",
   },
+  detailRoute: {
+    type: String,
+    default: null,
+  },
 });
 
 const isNews = computed(() => {
@@ -119,13 +123,16 @@ const newsListDisplay = computed(() => {
  * @param {Object} item - 被点击的新闻项数据
  */
 const onLinkClick = (item) => {
-  // 跳转到新闻详情页，并传递新闻的 id 参数
-  router.push({
-    path: isNews.value ? "/newsDetail" : "/exlantixNewsDetail",
-    query: {
-      id: item.id,
-    },
-  });
+  if (props.detailRoute) {
+    // Path-style routing: /news/:id
+    router.push(`${props.detailRoute}/${item.id}?id=${item.id}`);
+  } else {
+    // Legacy query-style routing
+    router.push({
+      path: isNews.value ? "/newsDetail" : "/exlantixNewsDetail",
+      query: { id: item.id },
+    });
+  }
 };
 
 /**

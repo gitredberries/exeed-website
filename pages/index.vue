@@ -20,7 +20,12 @@
               <div class="hero-text-content">{{ item.subtitle }}</div>
             </div>
             <img class="hero-image-bg" :src="item.image" alt="" />
-            <img class="hero-image-bg hero-image-bg-md" :src="item.imageMobile ? item.imageMobile : item.image" alt="" />
+            <img
+              class="hero-image-bg hero-image-bg-md"
+              :class="{ 'hero-image-bg-md--welcome': item.id === 'welcome' }"
+              :src="item.imageMobile ? item.imageMobile : item.image"
+              alt=""
+            />
           </div>
           <div v-if="item.bottomText" class="welcome-bottom-text">
             {{ item.bottomText }}
@@ -877,6 +882,11 @@ $commonSpace: 0.03rem;
         }
       }
 
+      /* First slide only — shift focal point to showcase vehicle front */
+      .hero-image-bg-md--welcome {
+        object-position: 35% 60%;
+      }
+
       .hero-text-bg {
         position: absolute;
         left: 0;
@@ -1052,6 +1062,27 @@ $commonSpace: 0.03rem;
 
     .section-4 {
       height: auto;
+    }
+
+    .section-5.lead-capture {
+      height: auto;
+      overflow: visible;
+      padding: 0.6rem 0.24rem;
+      .lead-capture-inner {
+        .lead-title {
+          font-size: 0.28rem;
+          margin-bottom: 0.3rem;
+        }
+        .lead-form {
+          .form-row {
+            flex-direction: column;
+            gap: 0;
+          }
+          .submit-btn {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

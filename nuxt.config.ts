@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_API_KEY,
     head: {
-      title: "EXEED International",
+      title: "EXEED Bahrain - Adamas Motors",
       meta: [
         {
           name: "viewport",
@@ -44,15 +44,15 @@ export default defineNuxtConfig({
         },
       ],
       script: [
-        // 这是谷歌分析的监听代码 -是key
-        // { src: "https://www.googletagmanager.com/gtag/js?id=G-BPTW8V3649", async: true },
-        // `window.dataLayer = window.dataLayer || [];
-        //   function gtag() {
-        //     dataLayer.push(arguments);
-        //   }
-        //   gtag("js", new Date());
-        //   gtag("config", "G-BPTW8V3649");
-        // `,
+        // Google tag (gtag.js) - GA4: G-LWN11QLX86
+        { src: "https://www.googletagmanager.com/gtag/js?id=G-LWN11QLX86", async: true },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LWN11QLX86');`,
+          type: "text/javascript",
+        },
       ],
     },
   },

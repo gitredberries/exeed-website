@@ -52,8 +52,10 @@ const getFormatDate = (date) => {
 };
 
 onMounted(() => {
+  // Support both /news/:id (params.id) and /newsDetail?id=xxx (query.id)
+  const articleId = route.params.id || route.query.id;
   fetch(
-    `${config.public.apiURL}api/front/articles/detailById?id=${route.query.id}`
+    `${config.public.apiURL}api/front/articles/detailById?id=${articleId}`
   )
     .then((response) => {
       if (!response.ok) {

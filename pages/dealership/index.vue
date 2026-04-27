@@ -1,48 +1,56 @@
 <template>
   <div class="dealership-page">
-    <section class="dealership-welcome">
+    <section class="dealership-welcome" v-if="content">
       <div class="welcome-text">
-        <h2 class="welcome-title">Welcome to EXEED Bahrain</h2>
-        <p class="welcome-body">
-          EXEED Bahrain is the Kingdom's authorised EXEED partner, dedicated to bringing EXEED's progressive
-          luxury and advanced engineering to drivers across Bahrain. We are committed to offering an outstanding,
-          personalised ownership experience—covering sales, aftersales and ongoing support—with professionalism,
-          technical expertise and meticulous attention to detail. EXEED's modern SUVs are celebrated for their
-          striking design, safety innovations and refined comfort; our mission is to match these exceptional
-          vehicles with first-class service at every step. Whether you're exploring the latest models, arranging
-          a test drive or seeking expert maintenance, the EXEED Bahrain team is ready to assist you.
-        </p>
+        <h2 class="welcome-title">{{ content.title }}</h2>
+        <p class="welcome-body">{{ content.description }}</p>
       </div>
       <div class="welcome-image">
-        <img class="car-img" src="/images/Web-banners/Dealership_Banner.jpg" alt="EXEED Bahrain" />
+        <img
+          class="car-img"
+          :src="content.image || '/images/Web-banners/Dealership_Banner.jpg'"
+          alt="EXEED Bahrain"
+        />
       </div>
+    </section>
+    <!-- fallback skeleton while loading -->
+    <section class="dealership-welcome" v-else-if="pending">
+      <div class="welcome-text">
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-body"></div>
+      </div>
+      <div class="welcome-image"></div>
     </section>
   </div>
 </template>
 
 <script setup>
-const router = useRouter();
+const config = useRuntimeConfig();
 
-const _models = reactive([
-  {
-    name: "EXEED VX",
-    subtitle: "EXEED Flagship Land Business Jet",
-    src: "home/vx.png",
-    link: "/vx",
-  },
-  {
-    name: "EXEED RX",
-    subtitle: "Commanding Presence. Refined Design.",
-    src: "home/rx.png",
-    link: "/rx",
-  },
-  {
-    name: "EXEED LX",
-    subtitle: "Explore Your Modern Self",
-    src: "home/lx.png",
-    link: "/lx",
-  },
-]);
+const { data: content, pending } = await useAsyncData('dealership-content', async () => {
+  try {
+    const res = await $fetch(
+      `${config.public.apiURL}api/front/dealership-content?siteCode=chery_xt`
+    );
+    if (res && res.code === 0) {
+      return res.data;
+    }
+    // fall back to static defaults if no CMS content exists
+    return {
+      title: 'Welcome to EXEED Bahrain',
+      description:
+        "EXEED Bahrain is the Kingdom's authorised EXEED partner, dedicated to bringing EXEED's progressive luxury and advanced engineering to drivers across Bahrain. We are committed to offering an outstanding, personalised ownership experience—covering sales, aftersales and ongoing support—with professionalism, technical expertise and meticulous attention to detail. EXEED's modern SUVs are celebrated for their striking design, safety innovations and refined comfort; our mission is to match these exceptional vehicles with first-class service at every step. Whether you're exploring the latest models, arranging a test drive or seeking expert maintenance, the EXEED Bahrain team is ready to assist you.",
+      image: '/images/Web-banners/Dealership_Banner.jpg',
+    };
+  } catch {
+    return {
+      title: 'Welcome to EXEED Bahrain',
+      description:
+        "EXEED Bahrain is the Kingdom's authorised EXEED partner, dedicated to bringing EXEED's progressive luxury and advanced engineering to drivers across Bahrain. We are committed to offering an outstanding, personalised ownership experience—covering sales, aftersales and ongoing support—with professionalism, technical expertise and meticulous attention to detail. EXEED's modern SUVs are celebrated for their striking design, safety innovations and refined comfort; our mission is to match these exceptional vehicles with first-class service at every step. Whether you're exploring the latest models, arranging a test drive or seeking expert maintenance, the EXEED Bahrain team is ready to assist you.",
+      image: '/images/Web-banners/Dealership_Banner.jpg',
+    };
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -95,6 +103,28 @@ const _models = reactive([
     }
   }
 
+  .skeleton {
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+
+    &-title {
+      height: 0.36rem;
+      width: 60%;
+      margin-bottom: 0.3rem;
+    }
+
+    &-body {
+      height: 1.5rem;
+      width: 100%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
 }
 
 @media screen and (max-width: 1024px) {

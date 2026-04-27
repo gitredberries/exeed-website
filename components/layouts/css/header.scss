@@ -2,35 +2,59 @@
   .header-outer {
     .header-wrapper {
       height: 0.52rem;
-      padding: 0 0.2rem;
+      padding: 0 0.24rem;
       transition: all .5s;
+
+      /* Adamas logo — override desktop absolute positioning for mobile */
+      .adamas-logo-link {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0.24rem;
+        height: 0.52rem;
+        align-items: center;
+        z-index: 1001;
+
+        .adamas-logo {
+          width: 0.72rem;
+          height: auto;
+          opacity: 0.85;
+        }
+      }
+
       .header-info {
-        justify-content: space-between;
+        /* Keep Menu on left; use relative container so logo can be centred */
+        justify-content: flex-start;
+        position: relative;
+
         .logo {
+          /* Visually centre the EXEED logo inside the bar */
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
           width: 0.97rem;
           cursor: pointer;
-        }
-        .adamas-logo-link {
-          display: none;
         }
         .md-nav {
           display: block;
           color: #808080;
           font-size: 0.16rem;
           cursor: pointer;
+          flex-shrink: 0;
         }
-        .md-nav-close{
+        .md-nav-close {
           display: block;
           color: #808080;
           font-size: 0.16rem;
           cursor: pointer;
+          flex-shrink: 0;
         }
         .lang-wrapper {
           position: static;
-          .lang{
+          .lang {
             display: none;
           }
-          .lang-icon{
+          .lang-icon {
             display: block;
             width: 0.24rem;
             cursor: pointer;
@@ -41,7 +65,7 @@
         display: none;
       }
     }
-    .fill-empty{
+    .fill-empty {
       height: 0.52rem;
     }
   }

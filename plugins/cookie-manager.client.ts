@@ -296,7 +296,7 @@ export default defineNuxtPlugin(() => {
         function addSdk() {
           console.log("sdk_into");
           var urls = [
-            "https://www.googletagmanager.com/gtag/js?id=G-2ZGXECS4W4",
+            "https://www.googletagmanager.com/gtag/js?id=G-LWN11QLX86",
           ];
           var s = document.getElementsByTagName("script")[0];
           $(urls).each(function (i, url) {
@@ -313,13 +313,13 @@ export default defineNuxtPlugin(() => {
             dataLayer.push(arguments);
           }
           gtag("js", new Date());
-          gtag("config", "G-2ZGXECS4W4");
+          gtag("config", "G-LWN11QLX86");
         }
 
         function removeSdk() {
           console.log("sdk_out");
           var scriptElements = document.querySelectorAll(
-            "script[src='https://www.googletagmanager.com/gtag/js?id=G-2ZGXECS4W4'],script[src='https://www.google-analytics.com/analytics.js'],script[src='https://www.googletagmanager.com/gtag/js?id=UA-270270641-1&l=dataLayer&cx=c']"
+            "script[src='https://www.googletagmanager.com/gtag/js?id=G-LWN11QLX86'],script[src='https://www.google-analytics.com/analytics.js'],script[src='https://www.googletagmanager.com/gtag/js?id=UA-270270641-1&l=dataLayer&cx=c']"
           );
           scriptElements.forEach(function (element) {
             element.remove();
@@ -328,7 +328,7 @@ export default defineNuxtPlugin(() => {
           delete window.dataLayer;
           setTimeout(function () {
             document.cookie =
-              "_ga_2ZGXECS4W4=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              "_ga_LWN11QLX86=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie =
               "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie =

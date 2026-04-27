@@ -204,10 +204,8 @@ const onPageClick = (page) => {
  * @param {object} item - 新闻项数据
  */
 const jumpToDetail = (item) => {
-  // 根据是否为 EXEED 新闻跳转到不同的详情页
-  router.push(
-    `/${isExeed.value ? "newsDetail" : "exlantixNewsDetail"}?id=${item.id}`
-  );
+  // 跳转到新闻详情页，格式为 /news/:id?id=:id
+  router.push(`/news/${item.id}?id=${item.id}`);
 };
 
 /**

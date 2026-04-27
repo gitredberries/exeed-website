@@ -612,6 +612,9 @@ $commonSpace: 0.03rem;
         }
 
         &.welcome-card {
+          &:hover .welcome-img {
+            transform: scale(var(--scale-img));
+          }
           .welcome-img {
             width: 100%;
             aspect-ratio: 48/29;

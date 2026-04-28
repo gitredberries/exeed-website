@@ -1,0 +1,11 @@
+﻿/360
+/360_Original
+/*.sql
+/node_modules
+/dist
+/.output
+/.nuxt
+/__MACOSX
+../../360
+../../360_Original
+../../backup_prod*

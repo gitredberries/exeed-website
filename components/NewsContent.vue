@@ -3,9 +3,20 @@
     <div class="content-main">
       <div class="content-main-left">
         <p class="time">{{ getFormatDate(mainData.publishTime) }}</p>
-        <p class="title">{{ mainData.title }}</p>
+        <p
+          class="title"
+          @click="onLinkClick(mainData)"
+          @mouseenter="() => mouseReadRef?.onMouseEnter()"
+          @mouseleave="() => mouseReadRef?.onMouseLeave()"
+          style="cursor: pointer;"
+        >{{ mainData.title }}</p>
       </div>
-      <div class="content-main-right" @click="onLinkClick(mainData)">
+      <div
+        class="content-main-right"
+        @click="onLinkClick(mainData)"
+        @mouseenter="() => mouseReadRef?.onMouseEnter()"
+        @mouseleave="() => mouseReadRef?.onMouseLeave()"
+      >
         <img class="main-img" :src="mainData.imageUrl" />
       </div>
     </div>
@@ -16,12 +27,21 @@
           v-for="item in items"
           @click="onLinkClick(item)"
         >
-          <div class="list-top">
+          <div
+            class="list-top"
+            @mouseenter="() => mouseReadRef?.onMouseEnter()"
+            @mouseleave="() => mouseReadRef?.onMouseLeave()"
+          >
             <img class="list-img" :src="item.imageUrl" />
           </div>
           <div class="list-bottom">
             <p class="time">{{ getFormatDate(item.publishTime) }}</p>
-            <p class="title" :title="item.title">{{ item.title }}</p>
+            <p
+              class="title"
+              :title="item.title"
+              @mouseenter="() => mouseReadRef?.onMouseEnter()"
+              @mouseleave="() => mouseReadRef?.onMouseLeave()"
+            >{{ item.title }}</p>
           </div>
         </div>
       </div>
@@ -29,10 +49,13 @@
     <div class="more" v-show="showMore">
       <div class="more-btn" @click="onMoreClick">Explore More</div>
     </div>
+    <MouseHover ref="mouseReadRef" text="READ" />
   </div>
 </template>
 <script setup>
 import { getFormatDate, debunce } from "@/utils/common/index.js";
+
+const mouseReadRef = ref();
 // 获取运行时配置，可用于访问环境变量等配置信息
 const config = useRuntimeConfig();
 // 获取路由实例，用于页面导航

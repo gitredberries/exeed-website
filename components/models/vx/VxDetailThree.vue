@@ -71,16 +71,13 @@
       <div
         class="w-full h-[94vh] lg:h-full flex justify-center items-center pt-[0.5rem]"
       >
-        <video
-          class="w-full lg:w-[96%] h-1/3 lg:h-[88vh] object-none"
-          autoplay
-          muted
-          controls
-          webkit-playsinline
-          playsinline
-        >
-          <source :src="videoUrl" type="video/mp4" />
-        </video>
+        <iframe
+          class="w-full lg:w-[96%] h-1/3 lg:h-[88vh]"
+          :src="videoUrl"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </Dialog>
     <!-- H5 端 -->
@@ -92,7 +89,6 @@
 <script setup>
 import { ref, watch, computed, nextTick, onBeforeUnmount } from "vue";
 import { useAnimation } from "~/utils/hooks/useAnimation.js";
-import { useRuntimeConfig } from "#imports";
 // 热点按钮和弹出内容的数据
 const hotspotData = [
   {
@@ -199,9 +195,8 @@ const videoDialog = ref(false);
 const open_video = () => {
   videoDialog.value = true;
 };
-// 视频 URL 和封面图
-const config = useRuntimeConfig();
-const videoUrl = `${config.public.oosURL}platform/public/video/index-video/vx_detail3.mp4`;
+// 视频 URL
+const videoUrl = `https://player.vimeo.com/video/1190093508?autoplay=1`;
 
 </script>
   <style scoped lang='scss'>

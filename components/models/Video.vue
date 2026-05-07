@@ -27,8 +27,17 @@
   <Dialog
     v-model="videoDialog"
   >
-    <div>
+    <div class="w-full flex justify-center items-center pt-[0.5rem]">
+      <iframe
+        v-if="currentConfig.vimeoEmbedUrl"
+        class="w-full lg:w-[96%] h-1/3 lg:h-[88vh]"
+        :src="currentConfig.vimeoEmbedUrl"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
       <video
+        v-else
         class="w-full_1 lg:w-[96%] h-1/3 lg:h-[88vh] object-none"
         autoplay
         controls
@@ -51,6 +60,7 @@ const videoData = {
     video: "vx_detail3.mp4",
     // poster: "banner3_1.jpg",
     buttonText: "APPEARANCE VIDEO",
+    vimeoEmbedUrl: "https://player.vimeo.com/video/1190093508?autoplay=1",
   },
   rx5: {
     video: "rx_detail5.mp4",

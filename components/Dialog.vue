@@ -1,10 +1,11 @@
 <template>
   <!-- 视频弹窗，使用 v-if 控制显示隐藏 -->
   <div v-if="isVideoVisible" :class="['video-popup', isActive && 'active']">
-    <div class="close" @click="close">
-      <BaseImg src="model/es/gp_close.png" />
-    </div>
     <slot></slot>
+  </div>
+  <!-- 关闭按钮：fixed 定位，独立于 iframe 的堆叠上下文，确保可点击 -->
+  <div v-if="isVideoVisible" class="close-btn" @click="close">
+    <BaseImg src="model/es/gp_close.png" />
   </div>
 </template>
 
@@ -63,14 +64,6 @@ const close = () => {
   &.active {
     opacity: 1;
   }
-  .close {
-    position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
-    width: 0.3rem;
-    height: 0.3rem;
-    cursor: pointer;
-  }
   :deep(.swiper-button-next){
     color: white;
     &::after{
@@ -83,5 +76,15 @@ const close = () => {
       font-size: 0.28rem;
     }
   }
+}
+
+.close-btn {
+  position: fixed;
+  top: 0.2rem;
+  right: 0.2rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  cursor: pointer;
+  z-index: 10000;
 }
 </style>

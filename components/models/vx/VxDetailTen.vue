@@ -38,7 +38,7 @@ const getSwiperIndex = (index) => {
 
 const contentData = ref([
   {
-    image: "models/vx/42.jpg",
+    image: "models/vx/adas-functions.jpeg",
     title: "26 ADAS Functions",
     description:
       "26 ADAS functions ensure safety with monitoring, early warning, and intervention. The SDG system reduces collision risk with alerts. Fully automatic parking includes HPA and APA, with a 540° camera for easy parking.",

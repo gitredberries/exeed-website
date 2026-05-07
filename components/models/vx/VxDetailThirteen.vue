@@ -95,9 +95,9 @@
         </Swiper>
       </div>
     </div>
-    <div class="title_Jump">
+    <!-- <div class="title_Jump">
       <PonoraMic sign="vx"/>
-    </div>
+    </div> -->
     <!-- 视频弹窗 -->
     <Dialog
       v-model="videoDialog"

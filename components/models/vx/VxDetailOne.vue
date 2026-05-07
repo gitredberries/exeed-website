@@ -11,9 +11,9 @@
         <div class="title_02">THE NEW VX</div>
       </div>
     </div>
-    <div class="title_Jump">
+    <!-- <div class="title_Jump">
       <PonoraMic sign="vx"/>
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>

@@ -178,7 +178,7 @@ const getNewsData = () => {
           return {
             ...v,
             publishTime: v.publishTime
-              ? moment(v.publishTime).format("YYYY/MM")
+              ? moment(v.publishTime).format("MMM D, YYYY")
               : "",
           };
         });
@@ -272,11 +272,12 @@ getNewsData();
     }
   }
   .content-wrapper {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.16rem;
     margin-top: 0.64rem;
     .content-item {
-      width: calc((100% - 0.32rem) / 3);
+      width: 100%;
       cursor: none;
       .img-wrapper {
         overflow: hidden;

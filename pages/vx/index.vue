@@ -19,6 +19,13 @@
 </template>
   
 <script setup>
+useHead({
+  title: 'EXEED VX Model Page | Bahrain',
+  meta: [
+    { name: 'description', content: 'Learn more about the new EXEED VX Flagship - Combining Power and Elegance in Every Detail.' }
+  ]
+});
+
 import VxDetailOne from "@/components/models/vx/VxDetailOne.vue";
 // import Demo from "@/components/models/vx/Demo.vue";
 import VxDetailTwo from "@/components/models/vx/VxDetailTwo.vue";

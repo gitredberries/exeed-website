@@ -100,6 +100,13 @@
 <script setup>
 const config = useRuntimeConfig();
 
+useHead({
+  title: 'EXEED Bahrain | Book Your Test Drive',
+  meta: [
+    { name: 'description', content: 'Submit an enquiry to book your personalised presentation and test drive of EXEED vehicle.' }
+  ]
+});
+
 const form = reactive({
   firstName: "",
   lastName: "",

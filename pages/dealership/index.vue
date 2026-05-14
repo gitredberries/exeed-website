@@ -27,6 +27,13 @@
 <script setup>
 const config = useRuntimeConfig();
 
+useHead({
+  title: 'EXEED Bahrain | Adamas Motor Group',
+  meta: [
+    { name: 'description', content: 'Visit EXEED Bahrain by Adamas Motors. Explore premium SUV line-up, expert service and great showroom experience.' }
+  ]
+});
+
 const { data: content, pending } = await useAsyncData('dealership-content', async () => {
   try {
     const res = await $fetch(

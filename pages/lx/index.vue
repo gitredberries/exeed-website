@@ -14,6 +14,13 @@
 </template>
   
 <script setup>
+useHead({
+  title: 'EXEED LX Model Page | Bahrain',
+  meta: [
+    { name: 'description', content: 'Discover the new EXEED LX - Explore Your Modern Self.' }
+  ]
+});
+
 import LxDetailOne from "@/components/models/lx/LxDetailOne.vue";
 import LxDetailTwo from "@/components/models/lx/LxDetailTwo.vue";
 import LxDetailThree from "@/components/models/lx/LxDetailThree.vue";

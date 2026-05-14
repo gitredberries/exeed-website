@@ -76,4 +76,13 @@
   </div>
 </template>
 
+<script setup>
+useHead({
+  title: 'EXEED Legal Notice',
+  meta: [
+    { name: 'description', content: 'EXEED Legal Notice' }
+  ]
+});
+</script>
+
 <style lang="css" scoped src="../../components/privacy/css/privacy.css"></style>

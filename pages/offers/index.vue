@@ -27,6 +27,13 @@
 import moment from "moment";
 
 const config = useRuntimeConfig();
+
+useHead({
+  title: 'Offers & Promotions | EXEED Bahrain',
+  meta: [
+    { name: 'description', content: 'Discover the latest offers and promotions available for EXEED in Bahrain. Find the best deal for your next purchase.' }
+  ]
+});
 const offersList = ref([]);
 
 const getOffers = () => {

@@ -14,6 +14,13 @@
 </template>
     
 <script setup>
+useHead({
+  title: 'EXEED RX Model Page | Bahrain',
+  meta: [
+    { name: 'description', content: 'Explore the new EXEED RX - The SUV of Choice for Every Aspect of Life.' }
+  ]
+});
+
 import RxDetailOne from"@/components/models/rx/RxDetailOne.vue"
 import RxDetailFour from "@/components/models/rx/RxDetailFour.vue"
 import RxDetailFive from "@/components/models/rx/RxDetailFive.vue"

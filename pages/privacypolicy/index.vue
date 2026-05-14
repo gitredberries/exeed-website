@@ -314,4 +314,13 @@
   </div>
 </template>
 
+<script setup>
+useHead({
+  title: 'EXEED Privacy Statement',
+  meta: [
+    { name: 'description', content: 'EXEED Privacy Statement' }
+  ]
+});
+</script>
+
 <style lang="css" scoped src="../../components/privacy/css/privacy.css"></style>

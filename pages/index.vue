@@ -179,6 +179,13 @@ import { Fetch } from "@/utils/common";
 import { navData } from "@/components/layouts/data";
 import { calcSrollDis } from "@/utils/common";
 
+useHead({
+  title: 'Official EXEED Dealer Website | Bahrain',
+  meta: [
+    { name: 'description', content: 'Welcome to the official website of EXEED Bahrain by Adamas Motor Group. Discover our range of innovative SUVs and visit our showroom.' }
+  ]
+});
+
 // 创建所有section的引用
 const section0Ref = ref(null);
 const section2Ref = ref(null);

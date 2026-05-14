@@ -77,6 +77,13 @@
 
 <script setup>
 const config = useRuntimeConfig();
+
+useHead({
+  title: 'EXEED Bahrain | Find Our Showroom',
+  meta: [
+    { name: 'description', content: 'Find contact information for EXEED Bahrain by Adamas Motors, including the location of our Bahrain showroom.' }
+  ]
+});
 </script>
 
 <style lang="scss" scoped>

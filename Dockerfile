@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Install pnpm (v9.x is compatible with Node.js 20 and matches lockfile version)
+RUN corepack enable && corepack prepare pnpm@9 --activate
 
 # Copy package files first for better layer caching
 COPY package.json pnpm-lock.yaml ./

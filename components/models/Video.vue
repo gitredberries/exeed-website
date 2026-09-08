@@ -56,12 +56,6 @@ import { ref, computed } from "vue";
 const videoPlayerRef = ref(null);
 // 视频数据集合
 const videoData = {
-  vx: {
-    video: "vx_detail3.mp4",
-    // poster: "banner3_1.jpg",
-    buttonText: "APPEARANCE VIDEO",
-    vimeoEmbedUrl: "https://player.vimeo.com/video/1190093508?autoplay=1",
-  },
   rx5: {
     video: "rx_detail5.mp4",
     // poster: "64.png",
@@ -147,7 +141,7 @@ const props = defineProps({
   },
   videoKey: {
     type: String,
-    default: "vx",
+    default: "rx5",
   },
   customButtonText: {
     type: String,
@@ -162,7 +156,7 @@ const basePath =
 const basePathImg = `${config.public.staticURL}/images/explorationImage/`;
 
 // 获取当前视频配置
-const currentConfig = computed(() => videoData[props.videoKey] || videoData.vx);
+const currentConfig = computed(() => videoData[props.videoKey] || videoData.rx5);
 
 // 当前视频URL和海报URL
 const currentVideo = computed(() => basePath + currentConfig.value.video);

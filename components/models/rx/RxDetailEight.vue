@@ -16,14 +16,14 @@
           @click="prev"
           :class="{ disabled: currentIndex === 0 }"
         >
-          <BaseImg src="models/vx/20.png" alt="" />
+          <BaseImg src="models/rx/20.png" alt="" />
         </div>
         <div
           class="swh_next"
           @click="next"
           :class="{ disabled: currentIndex === items - 1 }"
         >
-          <BaseImg src="models/vx/21.png" alt="" />
+          <BaseImg src="models/rx/21.png" alt="" />
         </div>
       </div>
       <div class="swiper-container">

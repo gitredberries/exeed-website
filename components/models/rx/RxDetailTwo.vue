@@ -57,7 +57,7 @@
 <script setup>
 import { watch, onMounted } from "vue";
 import { useAnimation } from "~/utils/hooks/useAnimation.js";
-import CountTo from "@/components/models/vx/CountTo.vue";
+import CountTo from "@/components/models/rx/CountTo.vue";
 const { targetRef, isVisible } = useAnimation({
   threshold: 0.3,
 });

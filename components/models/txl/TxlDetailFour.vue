@@ -14,7 +14,7 @@
       <div></div>
       <div class="ust_min" @click="showDialog">
         <div class="ust_btn">
-          <BaseImg class="zbi_1" src="models/vx/14.png" alt="" />
+          <BaseImg class="zbi_1" src="models/txl/14.png" alt="" />
         </div>
         <div class="ust_t">EXPLORE MORE</div>
       </div>

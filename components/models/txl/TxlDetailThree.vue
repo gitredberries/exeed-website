@@ -55,7 +55,7 @@
         />
       </div>
       <div class="mf_pop_close" @click="closeContent">
-        <BaseImg src="models/vx/64.png" alt="" />
+        <BaseImg src="models/txl/64.png" alt="" />
       </div>
     </div>
     <!-- H5 端 -->

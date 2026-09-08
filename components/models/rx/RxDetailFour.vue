@@ -36,8 +36,8 @@
       <div class="zdt_btn mf-ws" @click="open_video">
         <div>SHOWCASE VIDEO</div>
         <div class="zdt_b_icon">
-          <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
-          <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />
+          <BaseImg class="zbi_1" src="models/rx/12.png" alt="" />
+          <BaseImg class="zbi_2" src="models/rx/12.png" alt="" />
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
         />
       </div>
       <div class="mf_pop_close" @click="closeContent">
-        <BaseImg src="models/vx/64.png" alt="" />
+        <BaseImg src="models/rx/64.png" alt="" />
       </div>
     </div>
     <!-- 视频弹窗 -->

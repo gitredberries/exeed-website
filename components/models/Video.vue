@@ -17,8 +17,8 @@
       <div v-if="showControls" class="video_back" @click="videoPlayFullScreen">
         <div>{{ buttonText }}</div>
         <div class="zdt_b_icon">
-          <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
-          <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />
+          <BaseImg class="zbi_1" src="common/12.png" alt="" />
+          <BaseImg class="zbi_2" src="common/12.png" alt="" />
         </div>
       </div>
     </div>

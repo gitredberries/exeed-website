@@ -17,8 +17,8 @@
         >
           <div>SHOWCASE VIDEO</div>
           <div class="zdt_b_icon">
-            <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
-            <BaseImg class="zbi_2" src="models/vx/12.png" alt="" />
+            <BaseImg class="zbi_1" src="models/rx/12.png" alt="" />
+            <BaseImg class="zbi_2" src="models/rx/12.png" alt="" />
           </div>
         </div>
         <div
@@ -27,7 +27,7 @@
           @click="showDialog"
         >
           <div class="ust_btn">
-            <BaseImg class="zbi_1" src="models/vx/14.png" alt="" />
+            <BaseImg class="zbi_1" src="models/rx/14.png" alt="" />
           </div>
           <div class="ust_t">EXPLORE MORE</div>
         </div>

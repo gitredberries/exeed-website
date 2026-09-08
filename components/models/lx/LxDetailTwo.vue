@@ -10,7 +10,7 @@
         <div class="item_title">BorgWarner Drive System</div>
         <div class="item_tent">
           <div class="item_content">
-            <BaseImg src="models/vx/05.png" alt="" />
+            <BaseImg src="models/lx/05.png" alt="" />
             <div class="digit"><CountTo value="4" />WD</div>
           </div>
           <div class="item_border"></div>
@@ -21,7 +21,7 @@
         <div class="item_title">Driving Modes</div>
         <div class="item_tent">
           <div class="item_content btn">
-            <BaseImg src="models/vx/06.png" alt="" />
+            <BaseImg src="models/lx/06.png" alt="" />
             <div class="digit">
               <CountTo value="6" />
             </div>
@@ -32,7 +32,7 @@
         <div class="item_title">Intellectual Power</div>
         <div class="item_tent">
           <div class="item_content">
-            <BaseImg src="models/vx/07.png" alt="" />
+            <baseImg src="models/lx/07.png" alt="" />
             <div class="digit">L <CountTo value="2" />+</div>
           </div>
         </div>
@@ -59,7 +59,7 @@
   <script setup>
 import { watch, onMounted } from "vue";
 import { useAnimation } from "~/utils/hooks/useAnimation.js";
-import CountTo from "@/components/models/vx/CountTo.vue";
+import CountTo from "@/components/models/lx/CountTo.vue";
 const { targetRef, isVisible } = useAnimation({
   threshold: 0.3,
 });

@@ -35,7 +35,7 @@
           >
             <BaseImg
               :class="{ rotated: content.isActive }"
-              src="models/vx/41.png"
+              src="models/txl/41.png"
               alt=""
             />
             <div>EXPLORE MORE</div>

@@ -12,8 +12,8 @@
                 <BaseImg
                   :src="
                     activeNames === `${index}`
-                      ? 'models/vx/49.png'
-                      : 'models/vx/48.png'
+                      ? 'models/rx/49.png'
+                      : 'models/rx/48.png'
                   "
                   alt="toggle"
                   @click.stop="toggleCollapse(`${index}`)"

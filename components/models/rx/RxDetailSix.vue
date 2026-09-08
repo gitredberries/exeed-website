@@ -20,7 +20,7 @@
         </div>
         <div class="title_04" @click="showDialog">
           <span>INTELLIGENT DRIVING VIDEO</span>
-          <BaseImg class="zbi_1" src="models/vx/12.png" alt="" />
+          <BaseImg class="zbi_1" src="models/rx/12.png" alt="" />
         </div>
       </div>
       <div class="detail_img">

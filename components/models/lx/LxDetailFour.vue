@@ -19,7 +19,7 @@
         @click="showDialog"
       >
         <div class="ust_btn">
-          <BaseImg class="zbi_1" src="models/vx/14.png" alt="" />
+          <BaseImg class="zbi_1" src="models/lx/14.png" alt="" />
         </div>
         <div class="ust_t">EXPLORE MORE</div>
       </div>

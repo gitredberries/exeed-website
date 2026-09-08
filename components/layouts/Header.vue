@@ -85,7 +85,6 @@ import { navData } from "./data.js";
 const { scrollY } = useScroll();
 const router = useRouter();
 const route = useRoute();
-preloadRouteComponents("/vx");
 preloadRouteComponents("/rx");
 preloadRouteComponents("/lx");
 preloadRouteComponents("/news");
@@ -114,7 +113,6 @@ const isModelsDropdownOpen = ref(false);
 const modelsDropdownList = [
   { text: "LX", icon: "LX.png", link: "lx" },
   { text: "RX", icon: "RX.png", link: "rx" },
-  { text: "VX", icon: "VX.png", link: "vx" },
 ];
 
 const config = useRuntimeConfig();
@@ -137,9 +135,8 @@ const navList = reactive([
     text: "EXEED Models",
     isActive: true,
     children: [
-      { ...navData[3].children[0] }, // VX
-      { ...navData[3].children[3] }, // LX
-      { ...navData[3].children[1] }, // RX
+      { ...navData[3].children[0] }, // RX
+      { ...navData[3].children[2] }, // LX
     ],
   },
   {

@@ -5,8 +5,8 @@
     @click="goToExternalLink"
     :class="{ animate: isVisible }"
   >
-    <BaseImg class="img-default" src="models/vx/04.png" alt="" />
-    <BaseImg class="img-hover" src="models/vx/09.png" alt="" />
+    <BaseImg class="img-default" :src="`models/${props.sign}/04.png`" alt="" />
+    <BaseImg class="img-hover" :src="`models/${props.sign}/09.png`" alt="" />
     <div>Panoramic Exploration</div>
   </div>
 </template>
@@ -28,12 +28,12 @@ const { targetRef, isVisible } = useAnimation({
 const goToExternalLink = () => {
   let url = '';
   switch (props.sign) {
-    case 'vx': url = '/360/vx360/'; break;
     case 'rx': url = '/360/RX/'; break;
     case 'txl': url = '/360/TXL/'; break;
     case 'lx': url = '/360/LX/'; break;
     case 'es': url = '/360/es360-2.0/'; break;
     case 'et': url = '/360/ET_Pack/htdocs/'; break;
+    default: return; // Skip if sign is vx or unknown
   }
   window.open(url, "_blank");
 };

@@ -17,7 +17,7 @@
               <div class="swiper_title01">{{ item.title }}</div>
               <div class="swiper_title02">{{ item.description }}</div>
               <div class="explore-more" @click="item.isActive = !item.isActive">
-                <BaseImg src="models/vx/41.png" />
+                <BaseImg src="models/rx/41.png" />
                 <span>EXPLORE MORE</span>
               </div>
             </div>

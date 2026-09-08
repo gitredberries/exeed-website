@@ -126,7 +126,6 @@
             <div class="form-group">
               <select v-model="leadForm.model">
                 <option value="" disabled>Select Models</option>
-                <option value="EXEED VX">EXEED VX</option>
                 <option value="EXEED LX">EXEED LX</option>
                 <option value="EXEED RX">EXEED RX</option>
               </select>
@@ -215,7 +214,7 @@ const findLink = (linkName) => {
 };
 
 // Allowed banner linkNames for EXEED Bahrain (order defines slide order after welcome)
-const allowedBannerLinks = ["lx", "rx", "vx"];
+const allowedBannerLinks = ["lx", "rx"];
 
 const welcomeBanner = {
   id: "welcome",
@@ -273,13 +272,6 @@ const s2List = reactive([
     mdSrc: "home/rx-md.png",
     subtitle: "Commanding Presence. Refined Design.",
     link: "/rx",
-  },
-  {
-    src: "home/vx.png",
-    mdSrc: "home/vx-md.png",
-    title: "EXEED VX",
-    subtitle: "EXEED Flagship Land Business Jet",
-    link: "/vx",
   },
 ]);
 

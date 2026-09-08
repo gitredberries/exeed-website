@@ -36,31 +36,26 @@ export const navData = [
     children: [
       {
         id: 1,
-        text: "VX",
-        link: "vx",
-      },
-      {
-        id: 2,
         text: "RX",
         link: "rx",
       },
       {
-        id: 3,
+        id: 2,
         text: "TXL",
         link: "txl",
       },
       {
-        id: 4,
+        id: 3,
         text: "LX",
         link: "lx",
       },
       {
-        id: 5,
+        id: 4,
         text: "ES",
         link: "es",
       },
       {
-        id: 6,
+        id: 5,
         text: "ET",
         link: "et",
       },

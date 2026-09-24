@@ -5,8 +5,8 @@
     @click="goToExternalLink"
     :class="{ animate: isVisible }"
   >
-    <BaseImg class="img-default" :src="`models/${props.sign}/04.png`" alt="" />
-    <BaseImg class="img-hover" :src="`models/${props.sign}/09.png`" alt="" />
+    <BaseImg class="img-default" :src="getImagePath('default')" alt="" />
+    <BaseImg class="img-hover" :src="getImagePath('hover')" alt="" />
     <div>Panoramic Exploration</div>
   </div>
 </template>
@@ -20,6 +20,18 @@ const props = defineProps({
     default: 'vx',
   },
 });
+
+const imageExtensions = {
+  vx: { default: 'png', hover: 'png' },
+  rx: { default: 'jpg', hover: 'jpg' },
+  lx: { default: 'jpg', hover: 'jpg' },
+  txl: { default: 'png', hover: 'jpg' },
+};
+
+const getImagePath = (variant) => {
+  const extensions = imageExtensions[props.sign] || { default: 'png', hover: 'png' };
+  return `models/${props.sign}/${variant === 'default' ? '04' : '09'}.${extensions[variant]}`;
+};
 
 const { targetRef, isVisible } = useAnimation({
   threshold: 0.3,
